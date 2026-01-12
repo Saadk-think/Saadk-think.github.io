@@ -1,0 +1,187 @@
+<!-- ==================================================
+ Think Technologies — Production-Ready Website
+ SEO + Indexing + WhatsApp + Maps + Loader + Email-ready
+================================================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ================= SEO META ================= -->
+  <title>Think Technologies | Innovative IT & Software Solutions</title>
+  <meta name="description" content="Think Technologies provides innovative IT, software, cloud, and digital solutions to help businesses grow faster and smarter." />
+  <meta name="keywords" content="Think Technologies, IT Solutions, Software House, Web Development, Cloud Solutions, Austin Texas" />
+  <meta name="author" content="Think Technologies" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Think Technologies" />
+  <meta property="og:description" content="Think Smart. Build Faster. Grow Stronger." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Indexing -->
+  <meta name="robots" content="index, follow" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'XXXXXXXXXXXXXXX');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=XXXXXXXXXXXXXXX&ev=PageView&noscript=1"/></noscript>
+
+</head>
+<body class="bg-black text-white">
+
+<!-- ================= PAGE LOADER ================= -->
+<div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-black">
+  <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-sky-500"></div>
+</div>
+
+<script>
+  window.addEventListener('load', () => {
+    document.getElementById('loader').style.display = 'none';
+  });
+</script>
+
+<!-- ================= HERO ================= -->
+<section class="relative h-screen overflow-hidden">
+  <video class="absolute inset-0 w-full h-full object-cover" preload="metadata" autoplay muted loop playsinline>
+    <source src="ThinkTech4.mp4" type="video/mp4" />
+  </video>
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <div class="relative z-10 h-full flex items-end justify-center pb-12 px-6 text-center">
+    <div class="max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Think Smart. Build Faster. Grow Stronger.</h1>
+      <p class="text-slate-200 mb-6">At Think Technologies, our mission is to empower businesses with innovative IT solutions that drive growth, efficiency, and long-term success.</p>
+      <a href="#services" class="bg-sky-500 hover:bg-sky-600 px-8 py-3 rounded-lg font-semibold">Explore Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="relative h-[70vh] overflow-hidden">
+  <video class="absolute inset-0 w-full h-full object-cover" preload="metadata" autoplay muted loop playsinline>
+    <source src="Mission.mp4" type="video/mp4" />
+  </video>
+  <div class="absolute inset-0 bg-black/70"></div>
+
+  <div class="relative z-10 h-full flex items-center justify-center text-center px-6">
+    <div class="max-w-3xl">
+      <h2 class="text-4xl font-bold mb-3">About Think Technologies</h2>
+      <h3 class="text-xl text-sky-400 mb-4">Our Mission</h3>
+      <p class="text-slate-200">We empower businesses with innovative IT solutions and exceptional service, delivering long-term value and digital growth.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="bg-slate-900 py-16">
+  <h2 class="text-3xl font-bold text-center mb-10">Explore our innovative IT solutions gallery</h2>
+  <div class="max-w-4xl mx-auto overflow-hidden rounded-2xl bg-black">
+    <div class="flex animate-slide">
+      <img src="ChatGPT Image Jan 11, 2026, 10_53_44 PM.png" class="w-full h-[280px] object-contain" />
+      <img src="image (2).png" class="w-full h-[280px] object-contain" />
+      <img src="image (3).png" class="w-full h-[280px] object-contain" />
+      <img src="image (4).png" class="w-full h-[280px] object-contain" />
+      <img src="image (5).png" class="w-full h-[280px] object-contain" />
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="py-20">
+  <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
+  <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-6 px-6">
+    <div class="bg-slate-900 p-6 rounded-xl text-center">Web Development</div>
+    <div class="bg-slate-900 p-6 rounded-xl text-center">Mobile Applications</div>
+    <div class="bg-slate-900 p-6 rounded-xl text-center">Custom Software</div>
+    <div class="bg-slate-900 p-6 rounded-xl text-center">Cloud & IT Solutions</div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="bg-slate-900 py-20">
+  <div class="max-w-2xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-2">Contact Us</h2>
+    <p class="text-slate-300 mb-6">Better yet, see us in person!<br>We love our customers, so feel free to visit during normal business hours.</p>
+
+    <p class="mb-2">
+      <a href="mailto:Info@thinktechnologes.net" class="text-sky-400 font-semibold text-lg">
+        Info@thinktechnologes.net
+      </a>
+    </p>
+
+    <p class="text-slate-400 mb-6">
+      1401 Lavaca Street, Unit #7065<br>
+      Austin, TX 78701
+    </p>
+
+    <!-- Google Maps -->
+    <iframe class="w-full h-64 rounded mb-10" loading="lazy"
+      src="https://www.google.com/maps?q=1401+Lavaca+Street+Austin+TX+78701&output=embed"></iframe>
+
+    <!-- Subscribe Section -->
+    <div class="bg-black rounded-2xl p-8 text-left">
+      <h3 class="text-2xl font-semibold mb-2 text-center">Subscribe</h3>
+      <p class="text-slate-400 text-center mb-6">
+        Sign up to hear from us about specials, sales, and events.
+      </p>
+
+      <form action="https://formspree.io/f/xxxxxx" method="POST" class="flex flex-col md:flex-row gap-4">
+        <input type="email" name="email" required placeholder="Email"
+          class="flex-1 p-3 rounded bg-slate-900 border border-slate-700" />
+        <button type="submit"
+          class="bg-sky-500 hover:bg-sky-600 transition px-8 py-3 rounded font-semibold">
+          Sign Up
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHATSAPP BUTTON ================= -->
+<a href="https://wa.me/1XXXXXXXXXX" target="_blank" class="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" class="w-6 h-6"><path d="M16 2C8.3 2 2 8.1 2 15.6c0 2.8.8 5.3 2.2 7.5L2 30l7.1-2.1c2 1.1 4.3 1.7 6.9 1.7 7.7 0 14-6.1 14-13.6S23.7 2 16 2z"/></svg>
+</a>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-black py-6 text-center text-slate-500">© 2026 Think Technologies</footer>
+
+<!-- ================= SLIDER ================= -->
+<style>
+@keyframes slide {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(0); }
+  25% { transform: translateX(-100%); }
+  45% { transform: translateX(-100%); }
+  50% { transform: translateX(-200%); }
+  70% { transform: translateX(-200%); }
+  75% { transform: translateX(-300%); }
+  95% { transform: translateX(-300%); }
+  100% { transform: translateX(-400%); }
+}
+.animate-slide { animation: slide 30s infinite; }
+</style>
+
+</body>
+</html>
