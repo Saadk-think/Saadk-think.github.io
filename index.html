@@ -1,0 +1,143 @@
+<!-- =========================
+ Think Technologies – Multi‑Page Modern Website
+ Technologies: HTML + Tailwind CSS + Bootstrap Icons
+ Animations: CSS + Tailwind utilities
+ Backend‑ready contact form
+========================== -->
+
+<!-- =========================
+ FILE: index.html (Home)
+========================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Think Technologies | Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+<header class="bg-slate-900 text-white sticky top-0 z-50">
+  <nav class="max-w-7xl mx-auto flex justify-between items-center p-4">
+    <h1 class="text-xl font-bold tracking-wide">Think Technologies</h1>
+    <ul class="flex gap-6 text-sm">
+      <li><a href="index.html" class="hover:text-sky-400">Home</a></li>
+      <li><a href="about.html" class="hover:text-sky-400">About</a></li>
+      <li><a href="services.html" class="hover:text-sky-400">Services</a></li>
+      <li><a href="contact.html" class="hover:text-sky-400">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="min-h-screen flex items-center justify-center text-center px-6">
+  <div class="animate-fadeIn">
+    <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">We Build Smart Software</h2>
+    <p class="max-w-xl mx-auto text-lg mb-6">Creative, scalable and secure digital solutions for modern businesses.</p>
+    <a href="services.html" class="inline-block bg-sky-500 text-white px-6 py-3 rounded-lg hover:bg-sky-600 transition">Explore Services</a>
+  </div>
+</section>
+
+<footer class="bg-slate-900 text-white text-center p-4">
+  <p>&copy; 2026 Think Technologies</p>
+</footer>
+</body>
+</html>
+
+<!-- =========================
+ FILE: about.html
+========================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Think Technologies</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-slate-800">
+
+<section class="max-w-6xl mx-auto p-8">
+  <h2 class="text-3xl font-bold mb-4">About Us</h2>
+  <p class="leading-relaxed text-lg">
+    Think Technologies is a forward‑thinking software house focused on innovation,
+    quality, and long‑term partnerships. Our team transforms ideas into enterprise‑grade software.
+  </p>
+</section>
+
+</body>
+</html>
+
+<!-- =========================
+ FILE: services.html
+========================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Think Technologies</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50">
+
+<section class="max-w-7xl mx-auto p-8">
+  <h2 class="text-3xl font-bold text-center mb-10">Our Services</h2>
+  <div class="grid md:grid-cols-4 gap-6">
+
+    <div class="bg-white p-6 rounded-xl shadow hover:-translate-y-2 transition">
+      <i class="bi bi-globe text-3xl text-sky-500"></i>
+      <h3 class="font-semibold mt-3">Web Development</h3>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow hover:-translate-y-2 transition">
+      <i class="bi bi-phone text-3xl text-sky-500"></i>
+      <h3 class="font-semibold mt-3">Mobile Apps</h3>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow hover:-translate-y-2 transition">
+      <i class="bi bi-gear text-3xl text-sky-500"></i>
+      <h3 class="font-semibold mt-3">Custom Software</h3>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow hover:-translate-y-2 transition">
+      <i class="bi bi-cloud text-3xl text-sky-500"></i>
+      <h3 class="font-semibold mt-3">Cloud Solutions</h3>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
+
+<!-- =========================
+ FILE: contact.html (Backend‑ready)
+========================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Think Technologies</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white">
+
+<section class="max-w-xl mx-auto p-8">
+  <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+
+  <!-- Backend ready form -->
+  <form action="/contact" method="POST" class="space-y-4">
+    <input name="name" required placeholder="Your Name" class="w-full p-3 border rounded" />
+    <input name="email" type="email" required placeholder="Your Email" class="w-full p-3 border rounded" />
+    <textarea name="message" rows="5" required placeholder="Message" class="w-full p-3 border rounded"></textarea>
+    <button class="bg-sky-500 text-white px-6 py-3 rounded hover:bg-sky-600 transition">Send Message</button>
+  </form>
+</section>
+
+</body>
+</html>
+
+<!-- END OF PROJECT -->
