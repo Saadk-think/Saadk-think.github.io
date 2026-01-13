@@ -152,6 +152,10 @@
   const captionEl = document.getElementById('slideCaption');
   let index = 0;
 
+  <script>
+  const slides = document.querySelectorAll('.gallery-slide');
+  let current = 0;
+
   setInterval(() => {
     slides[current].classList.remove('active');
     current = (current + 1) % slides.length;
