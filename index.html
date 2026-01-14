@@ -14,35 +14,46 @@
 
   <style>
     <style>
-  /* Animated gradient (already added previously) */
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  /* Glassmorphism card */
+  .stat-card {
+    position: relative;
+    padding: 2.5rem 1.5rem;
+    border-radius: 1.25rem;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    text-align: center;
   }
 
-  .animate-gradient {
-    background-size: 300% 300%;
-    animation: gradient 12s ease infinite;
+  .stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.25);
   }
 
-  /* Fade-in animation per stat */
-  .stat {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+  /* Icon animation */
+  .icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.75rem;
+    animation: floatIcon 4s ease-in-out infinite;
   }
 
-  .stat.visible {
-    opacity: 1;
-    transform: translateY(0);
+  @keyframes floatIcon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
   }
 
-  /* Subtle glow effect */
-  .stat {
+  /* Hover boost icon */
+  .stat-card:hover .icon {
+    animation-duration: 1.5s;
+  }
+
+  /* Hover glow boost */
+  .stat-card:hover .stat {
     text-shadow:
-      0 0 12px rgba(59, 130, 246, 0.4),
-      0 0 24px rgba(59, 130, 246, 0.25);
+      0 0 20px rgba(59,130,246,0.8),
+      0 0 40px rgba(59,130,246,0.6);
   }
 </style>
   </style>
@@ -71,9 +82,7 @@
   <div class="relative max-w-7xl mx-auto px-6 pb-24">
   <h1 class="text-4xl md:text-6xl font-extrabold leading-tight whitespace-nowrap">
     Think Smart. Build Faster. Grow Stronger.
-  </h1>
-      Think Smart. Build Faster. Grow Stronger.
-    </h1>
+      </h1>
     <p class="mt-6 max-w-2xl text-slate-300 text-lg">
       AI‑driven, enterprise‑grade digital solutions engineered for scalability, security, and measurable business impact.
     </p>
@@ -148,7 +157,7 @@
     <!-- Divider -->
     <div class="w-24 h-1 bg-blue-600 mx-auto mb-16 rounded-full"></div>
 
-    <div id="stats" class="grid grid-cols-2 md:grid-cols-4 gap-14">
+    <div id="stats" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
       <div>
         <div class="stat text-5xl md:text-6xl font-extrabold text-blue-500" data-target="20">0</div>
         <div class="mt-3 text-sm uppercase tracking-wide text-slate-400">Projects</div>
@@ -216,73 +225,53 @@
 </footer>
 
 <script>
-  const stats = document.querySelectorAll('.stat');
-  let animated = false;
-
-  function animateStats() {
-    if (animated) return;
-    const section = document.getElementById('stats');
-    const sectionTop = section.getBoundingClientRect().top;
-    const triggerPoint = window.innerHeight - 100;
-
-    if (sectionTop < triggerPoint) {
-      stats.forEach(stat => {
-        const target = +stat.dataset.target;
-        let count = 0;
-        const increment = target / 60;
-
-        const update = () => {
-          count += increment;
-          if (count < target) {
-            stat.innerText = Math.ceil(count);
-            requestAnimationFrame(update);
-          } else {
-            stat.innerText = target;
-          }
-        };
-        update();
-      });
-      animated = true;
-    }
-  }
-
-  window.addEventListener('scroll', animateStats);
-</script>
-
-<script>
   document.addEventListener("DOMContentLoaded", () => {
     const stats = document.querySelectorAll(".stat");
-    let delay = 0;
 
-    stats.forEach((stat) => {
+    const animateStat = (stat, delay) => {
       const target = +stat.dataset.target;
-      let current = 0;
-      const duration = 2200; // slow & smooth
-      const startDelay = delay;
+      const duration = 2400;
+      let startTime = null;
+
+      stat.textContent = "0+";
+      stat.classList.remove("visible");
 
       setTimeout(() => {
         stat.classList.add("visible");
 
-        const startTime = performance.now();
-
-        function update(time) {
+        const update = (time) => {
+          if (!startTime) startTime = time;
           const progress = Math.min((time - startTime) / duration, 1);
-          current = Math.floor(progress * target);
-          stat.textContent = current + "+";
+          const value = Math.floor(progress * target);
+          stat.textContent = value + "+";
 
           if (progress < 1) {
             requestAnimationFrame(update);
           } else {
             stat.textContent = target + "+";
           }
-        }
+        };
 
         requestAnimationFrame(update);
-      }, startDelay);
+      }, delay);
+    };
 
-      delay += 500; // stagger timing (one-by-one)
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            stats.forEach((stat, index) => {
+              animateStat(stat, index * 500); // staggered
+            });
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(document.getElementById("stats"));
   });
 </script>
+
 </body>
 </html>
