@@ -2,153 +2,287 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Think Technologies | Innovative IT & Software Solutions</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Think Technologies | Enterprise Digital Solutions</title>
+  <meta name="description" content="Think Technologies delivers enterprise-grade software, cloud, AI, and cybersecurity solutions. Think Smart. Build Faster. Grow Stronger." />
 
-  <!-- SEO -->
-  <meta name="description" content="Think Technologies empowers businesses with innovative, scalable, and secure IT solutions that drive growth and long-term success." />
-  <meta name="keywords" content="Think Technologies, Software House, IT Solutions, Web Development, Mobile Apps, Cloud Solutions" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- Tailwind -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
-    .gallery-slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transform: scale(1.03);
-      transition: opacity 1.5s ease, transform 1.5s ease;
-    }
-    .gallery-slide.active {
-      opacity: 1;
-      transform: scale(1);
-      z-index: 10;
-    }
+    <style>
+  /* Animated gradient (already added previously) */
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animate-gradient {
+    background-size: 300% 300%;
+    animation: gradient 12s ease infinite;
+  }
+
+  /* Fade-in animation per stat */
+  .stat {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .stat.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Subtle glow effect */
+  .stat {
+    text-shadow:
+      0 0 12px rgba(59, 130, 246, 0.4),
+      0 0 24px rgba(59, 130, 246, 0.25);
+  }
+</style>
   </style>
 </head>
+<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
 
-<body class="bg-black text-white">
+<!-- NAVBAR -->
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-950/90 backdrop-blur border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <div class="text-xl font-bold tracking-wide">Think <span class="text-blue-600">Technologies</span></div> <button onclick="document.documentElement.classList.toggle('dark')" class="ml-4 text-sm px-3 py-1 border rounded-lg dark:border-slate-700">Toggle</button>
+    <nav class="hidden md:flex gap-8 text-sm font-medium">
+      <a href="#about" class="hover:text-blue-400">About</a>
+      <a href="#services" class="hover:text-blue-400">Services</a>
+      <a href="#industries" class="hover:text-blue-400">Industries</a>
+      <a href="#process" class="hover:text-blue-400">Process</a>
+      <a href="#contact" class="hover:text-blue-400">Contact</a>
+    </nav>
+  </div>
+</header>
 
-<!-- ================= HERO ================= -->
-<section class="relative h-screen overflow-hidden">
-  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
-    <source src="ThinkTech4.mp4" type="video/mp4" />
+<!-- HERO (Tech & AI Focused) -->
+<section class="relative overflow-hidden min-h-screen flex items-end">
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-40">
+    <source src="thinktech4.mp4" type="video/mp4">
   </video>
-  <div class="absolute inset-0 bg-black/60"></div>
-
-  <div class="relative z-10 h-full flex items-end justify-center pb-14 text-center px-6">
-    <div class="max-w-3xl">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">
-        Think Smart. Build Faster. Grow Stronger.
-      </h1>
-      <p class="text-slate-200 mb-6">
-        At Think Technologies, our mission is to empower businesses with innovative IT solutions that drive growth, efficiency, and long-term success.
-      </p>
-      <a href="#gallery" class="bg-sky-500 hover:bg-sky-600 px-8 py-3 rounded-lg font-semibold">
-        Explore Services
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= ABOUT ================= -->
-<section class="relative h-[70vh] overflow-hidden">
-  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
-    <source src="Mission.mp4" type="video/mp4" />
-  </video>
-  <div class="absolute inset-0 bg-black/70"></div>
-
-  <div class="relative z-10 h-full flex items-center justify-center text-center px-6">
-    <div class="max-w-4xl">
-      <h2 class="text-4xl font-bold mb-6">About Think Technologies</h2>
-      <p class="text-slate-200 text-lg leading-relaxed">
-        At Think Technologies, our mission is to design and deliver intelligent, scalable, and secure digital solutions that help businesses adapt, innovate, and lead in a rapidly evolving technological landscape. We believe in building long-term partnerships by combining deep technical expertise, creative problem-solving, and a strong commitment to quality, transparency, and measurable results. Our goal is not just to develop software, but to create meaningful digital experiences that drive sustainable growth and real business impact.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= GALLERY ================= -->
-<section id="gallery" class="bg-white py-20 text-slate-900">
-  <div class="max-w-6xl mx-auto px-6 text-center">
-
-    <h2 class="text-3xl font-bold mb-10">
-      Explore our innovative IT solutions gallery
-    </h2>
-
-    <div class="relative h-[420px] overflow-hidden rounded-2xl">
-     <img src="image-6.png" class="gallery-slide active object-contain w-full h-full" />
-     <img src="image-7.png" class="gallery-slide object-contain w-full h-full" />
-     <img src="image-8.png" class="gallery-slide object-contain w-full h-full" />
-     <img src="image-9.png" class="gallery-slide object-contain w-full h-full" />
-     <img src="image-10.png" class="gallery-slide object-contain w-full h-full" />
-     <img src="image-11.png" class="gallery-slide object-contain w-full h-full" />
-    </div>
-
-    <div id="slideCaption"
-         class="mt-6 inline-block bg-slate-900 text-white px-6 py-2 rounded-full text-sm font-semibold shadow">
-      Web Portal Development
-    </div>
-  </div>
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section class="bg-slate-900 py-20">
-  <div class="max-w-2xl mx-auto px-6 text-center">
-    <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
-
-    <p class="text-slate-300 mb-6">
-      Better yet, see us in person!<br />
-      We love our customers, so feel free to visit during normal business hours.
+  <div class="relative max-w-7xl mx-auto px-6 pb-24">
+  <h1 class="text-4xl md:text-6xl font-extrabold leading-tight whitespace-nowrap">
+    Think Smart. Build Faster. Grow Stronger.
+  </h1>
+      Think Smart. Build Faster. Grow Stronger.
+    </h1>
+    <p class="mt-6 max-w-2xl text-slate-300 text-lg">
+      AI‑driven, enterprise‑grade digital solutions engineered for scalability, security, and measurable business impact.
     </p>
+    <div class="mt-10 flex gap-4">
+      <a href="#contact" class="bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-lg font-semibold">Get Started</a>
+      <a href="#services" class="border border-slate-700 px-6 py-3 rounded-lg">Our Services</a>
+    </div>
+  </div>
+<!-- Bottom Gradient Fade -->
+<div class="pointer-events-none absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-slate-950 to-transparent"></div>
+</section>
 
-    <a href="mailto:Info@thinktechnologes.net"
-       class="text-sky-400 font-semibold text-lg block mb-4">
-      Info@thinktechnologes.net
-    </a>
-
-    <p class="text-slate-400 mb-8">
-      1401 Lavaca Street, Unit #7065<br />
-      Austin, TX 78701
-    </p>
-
-    <iframe class="w-full h-64 rounded mb-10"
-      src="https://www.google.com/maps?q=1401+Lavaca+Street+Austin+TX+78701&output=embed"
-      loading="lazy"></iframe>
-
-    <div class="bg-black rounded-2xl p-8">
-      <h3 class="text-2xl font-semibold mb-2">Subscribe</h3>
-      <p class="text-slate-400 mb-6">
-        Sign up to hear from us about specials, sales, and events.
+<!-- ABOUT -->
+<section id="about" class="py-24 bg-slate-900">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <h2 class="text-3xl font-bold">About Think Technologies</h2>
+      <p class="mt-6 text-slate-300 leading-relaxed">
+        At Think Technologies, our mission is to design and deliver intelligent, scalable, and secure digital solutions that help businesses adapt, innovate, and lead in a rapidly evolving technological landscape. We build long‑term partnerships through deep technical expertise, transparency, and measurable results.
       </p>
+    </div>
+    <video autoplay muted loop playsinline class="w-full rounded-2xl shadow-xl">
+      <source src="Mission.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
 
-      <form class="flex flex-col md:flex-row gap-4">
-        <input type="email" placeholder="Email" required
-          class="flex-1 p-3 rounded bg-slate-900 border border-slate-700" />
-        <button class="bg-sky-500 hover:bg-sky-600 px-8 py-3 rounded font-semibold">
-          Sign Up
-        </button>
-      </form>
+<!-- SERVICES (Tech + AI) -->
+<section id="services" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center">Enterprise Services</h2>
+    <div class="mt-16 grid md:grid-cols-3 gap-8">
+      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
+        <h3 class="font-semibold text-xl">Software Engineering</h3>
+        <p class="mt-4 text-slate-400">Custom enterprise platforms, SaaS products, and high‑performance systems.</p>
+      </div>
+      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
+        <h3 class="font-semibold text-xl">Cloud & DevOps</h3>
+        <p class="mt-4 text-slate-400">AWS, Azure, CI/CD, scalable infrastructure, and automation.</p>
+      </div>
+      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
+        <h3 class="font-semibold text-xl">AI, ML & Data Intelligence</h3>
+        <p class="mt-4 text-slate-400">Machine learning, generative AI, analytics, and intelligent enterprise decision systems.</p>
+      </div>
+      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
+        <h3 class="font-semibold text-xl">Cybersecurity</h3>
+        <p class="mt-4 text-slate-400">Security architecture, audits, and enterprise compliance.</p>
+      </div>
+      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
+        <h3 class="font-semibold text-xl">UI/UX Design</h3>
+        <p class="mt-4 text-slate-400">User‑centered interfaces designed for performance and adoption.</p>
+      </div>
+      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
+        <h3 class="font-semibold text-xl">Digital Transformation</h3>
+        <p class="mt-4 text-slate-400">Modernization of legacy systems and enterprise workflows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+	
+<!-- PROCESS -->
+<section id="process" class="py-24 bg-slate-900">
+
+<!-- STATS -->
+<section class="relative py-28 overflow-hidden bg-slate-950 border-t border-slate-800">
+  
+  <!-- Animated Gradient Background -->
+  <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-blue-950 to-slate-950 animate-gradient opacity-40"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 text-center">
+
+    <!-- Divider -->
+    <div class="w-24 h-1 bg-blue-600 mx-auto mb-16 rounded-full"></div>
+
+    <div id="stats" class="grid grid-cols-2 md:grid-cols-4 gap-14">
+      <div>
+        <div class="stat text-5xl md:text-6xl font-extrabold text-blue-500" data-target="20">0</div>
+        <div class="mt-3 text-sm uppercase tracking-wide text-slate-400">Projects</div>
+      </div>
+      <div>
+        <div class="stat text-5xl md:text-6xl font-extrabold text-blue-500" data-target="50">0</div>
+        <div class="mt-3 text-sm uppercase tracking-wide text-slate-400">Clients</div>
+      </div>
+      <div>
+        <div class="stat text-5xl md:text-6xl font-extrabold text-blue-500" data-target="10">0</div>
+        <div class="mt-3 text-sm uppercase tracking-wide text-slate-400">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat text-5xl md:text-6xl font-extrabold text-blue-500" data-target="24">0</div>
+        <div class="mt-3 text-sm uppercase tracking-wide text-slate-400">Support</div>
+      </div>
     </div>
   </div>
 </section>
 
-<footer class="bg-black py-6 text-center text-slate-500">
-  © 2026 Think Technologies
+<!-- PROCESS -->
+<section id="process" class="py-24 bg-slate-900">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center">Our Delivery Process</h2>
+    <div class="mt-16 grid md:grid-cols-4 gap-8 text-center">
+      <div><h4 class="font-semibold">Discover</h4><p class="text-slate-400 mt-2">Business & technical analysis</p></div>
+      <div><h4 class="font-semibold">Design</h4><p class="text-slate-400 mt-2">Architecture & UX planning</p></div>
+      <div><h4 class="font-semibold">Build</h4><p class="text-slate-400 mt-2">Agile enterprise development</p></div>
+      <div><h4 class="font-semibold">Scale</h4><p class="text-slate-400 mt-2">Optimization & growth</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 bg-slate-900">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+    <div>
+      <h2 class="text-3xl font-bold">Contact Us</h2>
+      <p class="mt-4 text-slate-400">Better yet, see us in person! We love our customers, so feel free to visit during normal business hours.</p>
+      <div class="mt-8 space-y-2 text-slate-300">
+        <p><strong>Email:</strong> <a href="mailto:Info@thinktechnologes.net" class="text-blue-500">Info@thinktechnologes.net</a></p>
+        <p><strong>Address:</strong><br/>1401 Lavaca Street, Unit #7065<br/>Austin, TX 78701</p>
+      </div>
+
+      <div class="mt-10">
+        <h3 class="text-xl font-semibold">Subscribe</h3>
+        <p class="text-slate-400 mt-2">Sign up to hear from us about specials, sales, and events.</p>
+        <form class="mt-4 flex gap-2">
+          <input type="email" placeholder="Email" class="flex-1 px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+          <button type="submit" class="px-6 py-3 rounded-lg bg-blue-600 font-semibold">Sign Up</button>
+        </form>
+      </div>
+    </div>
+
+    <iframe class="w-full h-[420px] rounded-2xl border border-slate-700" loading="lazy" allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps?q=1401%20Lavaca%20Street%20Austin%20TX%2078701&output=embed">
+    </iframe>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm">
+  © 2026 Think Technologies. All rights reserved.
 </footer>
 
 <script>
-  const slides = document.querySelectorAll('.gallery-slide');
-  let current = 0;
+  const stats = document.querySelectorAll('.stat');
+  let animated = false;
 
-  setInterval(() => {
-    slides[current].classList.remove('active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-  }, 4000); // ⬅️ 4 seconds (perfect speed)
+  function animateStats() {
+    if (animated) return;
+    const section = document.getElementById('stats');
+    const sectionTop = section.getBoundingClientRect().top;
+    const triggerPoint = window.innerHeight - 100;
+
+    if (sectionTop < triggerPoint) {
+      stats.forEach(stat => {
+        const target = +stat.dataset.target;
+        let count = 0;
+        const increment = target / 60;
+
+        const update = () => {
+          count += increment;
+          if (count < target) {
+            stat.innerText = Math.ceil(count);
+            requestAnimationFrame(update);
+          } else {
+            stat.innerText = target;
+          }
+        };
+        update();
+      });
+      animated = true;
+    }
+  }
+
+  window.addEventListener('scroll', animateStats);
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const stats = document.querySelectorAll(".stat");
+    let delay = 0;
+
+    stats.forEach((stat) => {
+      const target = +stat.dataset.target;
+      let current = 0;
+      const duration = 2200; // slow & smooth
+      const startDelay = delay;
+
+      setTimeout(() => {
+        stat.classList.add("visible");
+
+        const startTime = performance.now();
+
+        function update(time) {
+          const progress = Math.min((time - startTime) / duration, 1);
+          current = Math.floor(progress * target);
+          stat.textContent = current + "+";
+
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          } else {
+            stat.textContent = target + "+";
+          }
+        }
+
+        requestAnimationFrame(update);
+      }, startDelay);
+
+      delay += 500; // stagger timing (one-by-one)
+    });
+  });
+</script>
 </body>
 </html>
