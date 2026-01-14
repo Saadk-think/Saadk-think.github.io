@@ -12,30 +12,76 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <style>
-    <style>
-  /* Glassmorphism card */
+ <style>
+  /* ===============================
+     SVG stroke draw animation
+  =============================== */
+  .icon-svg path {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: draw 2s ease forwards;
+  }
+
+  .stat-card.visible .icon-svg path {
+    animation-delay: .2s;
+  }
+
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  /* ===============================
+     Stat Card (Glassmorphism)
+  =============================== */
   .stat-card {
     position: relative;
-    padding: 2.5rem 1.5rem;
-    border-radius: 1.25rem;
+    overflow: hidden;
+    padding: 2.8rem 1.6rem;
+    border-radius: 1.5rem;
     background: rgba(15, 23, 42, 0.55);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(148, 163, 184, 0.15);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(148,163,184,0.18);
+    cursor: pointer;
+    transition: transform .4s ease, box-shadow .4s ease;
     text-align: center;
   }
 
   .stat-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.25);
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(59,130,246,0.35);
   }
 
-  /* Icon animation */
-  .icon {
-    font-size: 2.2rem;
-    margin-bottom: 0.75rem;
+  /* Glass reflection */
+  .stat-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      transparent 40%,
+      rgba(255,255,255,.12),
+      transparent 60%
+    );
+    transform: translateX(-100%);
+    transition: transform .8s ease;
+    pointer-events: none;
+  }
+
+  .stat-card:hover::before {
+    transform: translateX(100%);
+  }
+
+  /* ===============================
+     Icon animation
+  =============================== */
+  .icon svg,
+  .icon-svg {
+    width: 42px;
+    height: 42px;
+    stroke-width: 1.6;
+    color: #60a5fa;
+    margin: 0 auto 1rem;
     animation: floatIcon 4s ease-in-out infinite;
   }
 
@@ -44,19 +90,54 @@
     50% { transform: translateY(-6px); }
   }
 
-  /* Hover boost icon */
-  .stat-card:hover .icon {
-    animation-duration: 1.5s;
+  /* ===============================
+     Numbers & labels
+  =============================== */
+  .stat {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #60a5fa;
+    text-shadow:
+      0 0 14px rgba(59,130,246,.4),
+      0 0 30px rgba(59,130,246,.25);
   }
 
-  /* Hover glow boost */
-  .stat-card:hover .stat {
-    text-shadow:
-      0 0 20px rgba(59,130,246,0.8),
-      0 0 40px rgba(59,130,246,0.6);
+  .label {
+    margin-top: .5rem;
+    font-size: .85rem;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: #94a3b8;
+  }
+
+  /* ===============================
+     Ripple effect
+  =============================== */
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 600ms linear;
+    background: rgba(96,165,250,.35);
+    pointer-events: none;
+  }
+
+  @keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  /* ===============================
+     Haptic micro-feedback
+  =============================== */
+  .stat-card:active {
+    transform: scale(0.96);
+    box-shadow: 0 10px 20px rgba(59,130,246,0.25);
   }
 </style>
-  </style>
+
 </head>
 <body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
 
@@ -82,7 +163,9 @@
   <div class="relative max-w-7xl mx-auto px-6 pb-24">
   <h1 class="text-4xl md:text-6xl font-extrabold leading-tight whitespace-nowrap">
     Think Smart. Build Faster. Grow Stronger.
-      </h1>
+  </h1>
+      Think Smart. Build Faster. Grow Stronger.
+    </h1>
     <p class="mt-6 max-w-2xl text-slate-300 text-lg">
       AI‑driven, enterprise‑grade digital solutions engineered for scalability, security, and measurable business impact.
     </p>
@@ -154,28 +237,65 @@
 
   <div class="relative max-w-7xl mx-auto px-6 text-center">
 
+<div class="text-center mb-20">
+  <h2 class="text-3xl md:text-4xl font-extrabold">
+    Our Impact in Numbers
+  </h2>
+  </p>
+</div>
     <!-- Divider -->
     <div class="w-24 h-1 bg-blue-600 mx-auto mb-16 rounded-full"></div>
 
-    <div id="stats" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-      <div>
-        <div class="stat text-5xl md:text-6xl font-extrabold text-blue-500" data-target="20">0</div>
-        <div class="mt-3 text-sm uppercase tracking-wide text-slate-400">Projects</div>
-      </div>
-      <div>
-        <div class="stat text-5xl md:text-6xl font-extrabold text-blue-500" data-target="50">0</div>
-        <div class="mt-3 text-sm uppercase tracking-wide text-slate-400">Clients</div>
-      </div>
-      <div>
-        <div class="stat text-5xl md:text-6xl font-extrabold text-blue-500" data-target="10">0</div>
-        <div class="mt-3 text-sm uppercase tracking-wide text-slate-400">Years Experience</div>
-      </div>
-      <div>
-        <div class="stat text-5xl md:text-6xl font-extrabold text-blue-500" data-target="24">0</div>
-        <div class="mt-3 text-sm uppercase tracking-wide text-slate-400">Support</div>
-      </div>
+   <div id="stats" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+
+  <!-- Projects -->
+  <div class="stat-card group">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M3 12l9-9 9 9"/>
+        <path d="M9 21V9h6v12"/>
+      </svg>
     </div>
+    <div class="stat" data-target="20">0+</div>
+    <div class="label">Projects</div>
   </div>
+
+  <!-- Clients -->
+  <div class="stat-card group">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <circle cx="12" cy="7" r="4"/>
+        <path d="M5.5 21a6.5 6.5 0 0113 0"/>
+      </svg>
+    </div>
+    <div class="stat" data-target="50">0+</div>
+    <div class="label">Clients</div>
+  </div>
+
+  <!-- Experience -->
+  <div class="stat-card group">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M12 7v5l3 3"/>
+      </svg>
+    </div>
+    <div class="stat" data-target="10">0+</div>
+    <div class="label">Years Experience</div>
+  </div>
+
+  <!-- Support -->
+  <div class="stat-card group">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M18 10a6 6 0 10-12 0v5a2 2 0 002 2h1"/>
+        <path d="M15 17h1a2 2 0 002-2v-5"/>
+      </svg>
+    </div>
+    <div class="stat" data-target="24">0+</div>
+    <div class="label">Support</div>
+  </div>
+</div>
 </section>
 
 <!-- PROCESS -->
@@ -227,51 +347,66 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const stats = document.querySelectorAll(".stat");
+    const cards = document.querySelectorAll(".stat-card");
 
-    const animateStat = (stat, delay) => {
+    const animateStat = (stat, duration) => {
       const target = +stat.dataset.target;
-      const duration = 2400;
-      let startTime = null;
+      let start = null;
 
-      stat.textContent = "0+";
-      stat.classList.remove("visible");
+      const update = (t) => {
+        if (!start) start = t;
+        const p = Math.min((t - start) / duration, 1);
+        stat.textContent = Math.floor(p * target) + "+";
+        if (p < 1) requestAnimationFrame(update);
+      };
 
-      setTimeout(() => {
-        stat.classList.add("visible");
-
-        const update = (time) => {
-          if (!startTime) startTime = time;
-          const progress = Math.min((time - startTime) / duration, 1);
-          const value = Math.floor(progress * target);
-          stat.textContent = value + "+";
-
-          if (progress < 1) {
-            requestAnimationFrame(update);
-          } else {
-            stat.textContent = target + "+";
-          }
-        };
-
-        requestAnimationFrame(update);
-      }, delay);
+      requestAnimationFrame(update);
     };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            stats.forEach((stat, index) => {
-              animateStat(stat, index * 500); // staggered
-            });
-          }
-        });
-      },
-      { threshold: 0.4 }
-    );
+    // Intersection Observer
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          cards.forEach((card, i) => {
+            setTimeout(() => {
+              card.classList.add("visible");
+              animateStat(card.querySelector(".stat"), 2400);
+            }, i * 400);
+          });
+        }
+      });
+    }, { threshold: 0.5 });
 
     observer.observe(document.getElementById("stats"));
+
+    // Ripple + hover acceleration + navigation
+    cards.forEach(card => {
+      card.addEventListener("click", e => {
+        // Ripple
+        const ripple = document.createElement("span");
+        ripple.className = "ripple";
+        ripple.style.left = `${e.offsetX}px`;
+        ripple.style.top = `${e.offsetY}px`;
+        card.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
+
+        // Navigate
+        const link = card.dataset.link;
+        if (link) {
+          setTimeout(() => {
+            window.location.href = link;
+          }, 150);
+        }
+      });
+
+      // Hover accelerate
+      card.addEventListener("mouseenter", () => {
+        animateStat(card.querySelector(".stat"), 900);
+      });
+    });
   });
 </script>
 
+</script>
 </body>
 </html>
