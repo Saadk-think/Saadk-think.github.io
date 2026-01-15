@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Think Technologies | Enterprise Digital Solutions</title>
-  <meta name="description" content="Think Technologies delivers enterprise-grade software, cloud, AI, and cybersecurity solutions. Think Smart. Build Faster. Grow Stronger." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Think Technologies | Enterprise Digital Solutions</title>
+<meta name="description" content="Think Technologies delivers enterprise-grade software, cloud, AI, and cybersecurity solutions." />
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
- <style>
-  /* ===============================
+<style>
+
+ /* ===============================
      SVG stroke draw animation
   =============================== */
   .icon-svg path {
@@ -136,55 +137,201 @@
     transform: scale(0.96);
     box-shadow: 0 10px 20px rgba(59,130,246,0.25);
   }
-</style>
 
+/* ================= GLOWING SECTION HEADINGS ================= */
+@keyframes glowPulse {
+  0% {
+    text-shadow:
+      0 0 8px rgba(59,130,246,.4),
+      0 0 20px rgba(59,130,246,.25);
+  }
+  50% {
+    text-shadow:
+      0 0 14px rgba(59,130,246,.8),
+      0 0 40px rgba(59,130,246,.45);
+  }
+  100% {
+    text-shadow:
+      0 0 8px rgba(59,130,246,.4),
+      0 0 20px rgba(59,130,246,.25);
+  }
+}
+
+.section-glow {
+  color: #e5f0ff;
+  animation: glowPulse 3.5s ease-in-out infinite;
+}
+
+body { font-family: Inter, sans-serif; }
+
+/* ================= HERO FADE ================= */
+.hero-fade {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 160px;
+  background: linear-gradient(to top, #020617, transparent);
+  pointer-events: none;
+}
+
+/* ================= FLOAT ICON ================= */
+@keyframes floatIcon {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ================= STATS ================= */
+
+/* ===== PROCESS ICON FIX ===== */
+.process-icon svg {
+  width: 44px;
+  height: 44px;
+  color: #60a5fa;
+  stroke-width: 1.8;
+
+  animation: floatIcon 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(96,165,250,.55));
+}
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  padding: 2.6rem 1.6rem;
+  border-radius: 1.5rem;
+  background: rgba(15,23,42,.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(148,163,184,.2);
+  text-align: center;
+  cursor: pointer;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(59,130,246,.35);
+}
+.stat-card:active { transform: scale(.96); }
+
+.stat {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #60a5fa;
+  text-shadow: 0 0 16px rgba(59,130,246,.45);
+}
+.label {
+  margin-top: .5rem;
+  font-size: .8rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+/* Ripple */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: rgba(96,165,250,.35);
+  animation: ripple .6s linear;
+}
+@keyframes ripple {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ================= PROCESS ================= */
+.process-card {
+  background: rgba(15,23,42,.6);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(148,163,184,.2);
+  border-radius: 1.5rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all .6s ease;
+}
+.process-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.process-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(59,130,246,.3);
+}
+.process-icon svg {
+  width: 44px;
+  height: 44px;
+  color: #60a5fa;
+  margin: 0 auto 1.2rem;
+  animation: floatIcon 4s ease-in-out infinite;
+}
+
+/* ================= WHATSAPP BUTTON ================= */
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,.35);
+  z-index: 999;
+}
+.whatsapp-float:hover { opacity: .9; }
+</style>
 </head>
-<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
+
+<body class="bg-slate-950 text-slate-100">
 
 <!-- NAVBAR -->
-<header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-950/90 backdrop-blur border-b border-slate-200 dark:border-slate-800">
+<header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800">
   <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-    <div class="text-xl font-bold tracking-wide">Think <span class="text-blue-600">Technologies</span></div> <button onclick="document.documentElement.classList.toggle('dark')" class="ml-4 text-sm px-3 py-1 border rounded-lg dark:border-slate-700">Toggle</button>
-    <nav class="hidden md:flex gap-8 text-sm font-medium">
+    <div class="text-xl font-bold">Think <span class="text-blue-500">Technologies</span></div>
+    <nav class="hidden md:flex gap-8 text-sm">
       <a href="#about" class="hover:text-blue-400">About</a>
       <a href="#services" class="hover:text-blue-400">Services</a>
-      <a href="#industries" class="hover:text-blue-400">Industries</a>
       <a href="#process" class="hover:text-blue-400">Process</a>
       <a href="#contact" class="hover:text-blue-400">Contact</a>
     </nav>
   </div>
 </header>
 
-<!-- HERO (Tech & AI Focused) -->
-<section class="relative overflow-hidden min-h-screen flex items-end">
+<!-- HERO -->
+<section class="relative min-h-screen flex items-end overflow-hidden">
   <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-40">
     <source src="thinktech4.mp4" type="video/mp4">
   </video>
+
   <div class="relative max-w-7xl mx-auto px-6 pb-24">
-  <h1 class="text-4xl md:text-6xl font-extrabold leading-tight whitespace-nowrap">
-    Think Smart. Build Faster. Grow Stronger.
-  </h1>
+    <h1 class="text-4xl md:text-6xl font-extrabold whitespace-nowrap">
       Think Smart. Build Faster. Grow Stronger.
     </h1>
     <p class="mt-6 max-w-2xl text-slate-300 text-lg">
-      AI‑driven, enterprise‑grade digital solutions engineered for scalability, security, and measurable business impact.
+      AI-driven, enterprise-grade digital solutions engineered for scalability,
+      security, and measurable business impact.
     </p>
     <div class="mt-10 flex gap-4">
       <a href="#contact" class="bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-lg font-semibold">Get Started</a>
       <a href="#services" class="border border-slate-700 px-6 py-3 rounded-lg">Our Services</a>
     </div>
   </div>
-<!-- Bottom Gradient Fade -->
-<div class="pointer-events-none absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-slate-950 to-transparent"></div>
+
+  <div class="hero-fade"></div>
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT / MISSION -->
 <section id="about" class="py-24 bg-slate-900">
   <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
     <div>
-      <h2 class="text-3xl font-bold">About Think Technologies</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-16 section-glow">
+  About Think Technologies
+</h2>
       <p class="mt-6 text-slate-300 leading-relaxed">
-        At Think Technologies, our mission is to design and deliver intelligent, scalable, and secure digital solutions that help businesses adapt, innovate, and lead in a rapidly evolving technological landscape. We build long‑term partnerships through deep technical expertise, transparency, and measurable results.
+        At Think Technologies, our mission is to design and deliver intelligent,
+        scalable, and secure digital solutions that help businesses adapt,
+        innovate, and lead in a rapidly evolving technological landscape.
       </p>
     </div>
     <video autoplay muted loop playsinline class="w-full rounded-2xl shadow-xl">
@@ -193,39 +340,23 @@
   </div>
 </section>
 
-<!-- SERVICES (Tech + AI) -->
+<!-- SERVICES -->
 <section id="services" class="py-24">
   <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center">Enterprise Services</h2>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-20 section-glow">
+  Enterprise Services
+</h2>
     <div class="mt-16 grid md:grid-cols-3 gap-8">
-      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
-        <h3 class="font-semibold text-xl">Software Engineering</h3>
-        <p class="mt-4 text-slate-400">Custom enterprise platforms, SaaS products, and high‑performance systems.</p>
-      </div>
-      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
-        <h3 class="font-semibold text-xl">Cloud & DevOps</h3>
-        <p class="mt-4 text-slate-400">AWS, Azure, CI/CD, scalable infrastructure, and automation.</p>
-      </div>
-      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
-        <h3 class="font-semibold text-xl">AI, ML & Data Intelligence</h3>
-        <p class="mt-4 text-slate-400">Machine learning, generative AI, analytics, and intelligent enterprise decision systems.</p>
-      </div>
-      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
-        <h3 class="font-semibold text-xl">Cybersecurity</h3>
-        <p class="mt-4 text-slate-400">Security architecture, audits, and enterprise compliance.</p>
-      </div>
-      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
-        <h3 class="font-semibold text-xl">UI/UX Design</h3>
-        <p class="mt-4 text-slate-400">User‑centered interfaces designed for performance and adoption.</p>
-      </div>
-      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
-        <h3 class="font-semibold text-xl">Digital Transformation</h3>
-        <p class="mt-4 text-slate-400">Modernization of legacy systems and enterprise workflows.</p>
-      </div>
+      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">Software Engineering</div>
+      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">Cloud & DevOps</div>
+      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">AI, ML & Data Intelligence</div>
+      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">Cybersecurity</div>
+      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">UI / UX Design</div>
+      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">Digital Transformation</div>
     </div>
   </div>
 </section>
-	
+
 <!-- PROCESS -->
 <section id="process" class="py-24 bg-slate-900">
 
@@ -299,114 +430,163 @@
 </section>
 
 <!-- PROCESS -->
-<section id="process" class="py-24 bg-slate-900">
   <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center">Our Delivery Process</h2>
-    <div class="mt-16 grid md:grid-cols-4 gap-8 text-center">
-      <div><h4 class="font-semibold">Discover</h4><p class="text-slate-400 mt-2">Business & technical analysis</p></div>
-      <div><h4 class="font-semibold">Design</h4><p class="text-slate-400 mt-2">Architecture & UX planning</p></div>
-      <div><h4 class="font-semibold">Build</h4><p class="text-slate-400 mt-2">Agile enterprise development</p></div>
-      <div><h4 class="font-semibold">Scale</h4><p class="text-slate-400 mt-2">Optimization & growth</p></div>
+    <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-20 section-glow">
+  Our Delivery Process
+</h2>
+
+    <div class="grid md:grid-cols-4 gap-10">
+
+      <!-- Discover -->
+      <div class="process-card">
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 7v5l3 3"/>
+          </svg>
+        </div>
+        <h3 class="font-semibold">Discover</h3>
+        <p class="text-slate-400">Business & technical analysis</p>
+      </div>
+
+      <!-- Design -->
+      <div class="process-card">
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="3" y="3" width="18" height="18" rx="3"/>
+            <path d="M7 8h10M7 12h6"/>
+          </svg>
+        </div>
+        <h3 class="font-semibold">Design</h3>
+        <p class="text-slate-400">Architecture & UX planning</p>
+      </div>
+
+      <!-- Build -->
+      <div class="process-card">
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M3 12h18"/>
+            <path d="M12 3v18"/>
+          </svg>
+        </div>
+        <h3 class="font-semibold">Build</h3>
+        <p class="text-slate-400">Agile enterprise development</p>
+      </div>
+
+      <!-- Scale -->
+      <div class="process-card">
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M3 17l6-6 4 4 7-7"/>
+            <path d="M14 4h7v7"/>
+          </svg>
+        </div>
+        <h3 class="font-semibold">Scale</h3>
+        <p class="text-slate-400">Optimization & growth</p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT + SUBSCRIBE -->
 <section id="contact" class="py-24 bg-slate-900">
   <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
     <div>
       <h2 class="text-3xl font-bold">Contact Us</h2>
-      <p class="mt-4 text-slate-400">Better yet, see us in person! We love our customers, so feel free to visit during normal business hours.</p>
-      <div class="mt-8 space-y-2 text-slate-300">
-        <p><strong>Email:</strong> <a href="mailto:Info@thinktechnologes.net" class="text-blue-500">Info@thinktechnologes.net</a></p>
-        <p><strong>Address:</strong><br/>1401 Lavaca Street, Unit #7065<br/>Austin, TX 78701</p>
-      </div>
+      <p class="mt-4 text-slate-400">
+        <strong>Email:</strong>
+        <a href="mailto:Info@thinktechnologes.net" class="text-blue-500">Info@thinktechnologes.net</a>
+      </p>
+      <p class="mt-4 text-slate-400">
+        <strong>Address:</strong><br>
+        1401 Lavaca Street, Unit #7065<br>
+        Austin, TX 78701
+      </p>
 
+      <!-- SUBSCRIBE (ADDED) -->
       <div class="mt-10">
         <h3 class="text-xl font-semibold">Subscribe</h3>
-        <p class="text-slate-400 mt-2">Sign up to hear from us about specials, sales, and events.</p>
+        <p class="text-slate-400 mt-2">Sign up to hear from us about updates and offers.</p>
         <form class="mt-4 flex gap-2">
-          <input type="email" placeholder="Email" class="flex-1 px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
-          <button type="submit" class="px-6 py-3 rounded-lg bg-blue-600 font-semibold">Sign Up</button>
+          <input type="email" placeholder="Email address"
+            class="flex-1 px-4 py-3 rounded-lg bg-slate-800 border border-slate-700">
+          <button type="submit" class="px-6 py-3 rounded-lg bg-blue-600 font-semibold">
+            Sign Up
+          </button>
         </form>
       </div>
     </div>
 
-    <iframe class="w-full h-[420px] rounded-2xl border border-slate-700" loading="lazy" allowfullscreen
+    <iframe
+      class="w-full h-[420px] rounded-2xl border border-slate-700"
+      loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
       src="https://www.google.com/maps?q=1401%20Lavaca%20Street%20Austin%20TX%2078701&output=embed">
     </iframe>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm">
   © 2026 Think Technologies. All rights reserved.
 </footer>
 
+<!-- WHATSAPP FLOATING BUTTON (ADDED) -->
+<a href="https://wa.me/905527506357" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" width="26" fill="white">
+    <path d="M16 2C8.3 2 2 8.1 2 15.7c0 2.8.8 5.5 2.4 7.8L2 30l6.7-2.2c2.2 1.2 4.8 1.9 7.3 1.9 7.7 0 14-6.1 14-13.7C30 8.1 23.7 2 16 2z"/>
+  </svg>
+</a>
+
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const stats = document.querySelectorAll(".stat");
-    const cards = document.querySelectorAll(".stat-card");
+/* Stats counting */
+const statsSection = document.getElementById("stats");
+const statCards = document.querySelectorAll(".stat-card");
 
-    const animateStat = (stat, duration) => {
-      const target = +stat.dataset.target;
-      let start = null;
-
-      const update = (t) => {
-        if (!start) start = t;
-        const p = Math.min((t - start) / duration, 1);
-        stat.textContent = Math.floor(p * target) + "+";
-        if (p < 1) requestAnimationFrame(update);
-      };
-
-      requestAnimationFrame(update);
-    };
-
-    // Intersection Observer
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          cards.forEach((card, i) => {
-            setTimeout(() => {
-              card.classList.add("visible");
-              animateStat(card.querySelector(".stat"), 2400);
-            }, i * 400);
-          });
-        }
-      });
-    }, { threshold: 0.5 });
-
-    observer.observe(document.getElementById("stats"));
-
-    // Ripple + hover acceleration + navigation
-    cards.forEach(card => {
-      card.addEventListener("click", e => {
-        // Ripple
-        const ripple = document.createElement("span");
-        ripple.className = "ripple";
-        ripple.style.left = `${e.offsetX}px`;
-        ripple.style.top = `${e.offsetY}px`;
-        card.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 600);
-
-        // Navigate
-        const link = card.dataset.link;
-        if (link) {
-          setTimeout(() => {
-            window.location.href = link;
-          }, 150);
-        }
-      });
-
-      // Hover accelerate
-      card.addEventListener("mouseenter", () => {
-        animateStat(card.querySelector(".stat"), 900);
-      });
+const statsObserver = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) {
+    statCards.forEach((card, i) => {
+      setTimeout(() => {
+        const stat = card.querySelector(".stat");
+        const target = +stat.dataset.target;
+        let current = 0;
+        const timer = setInterval(() => {
+          current++;
+          stat.textContent = current + "+";
+          if (current >= target) clearInterval(timer);
+        }, 40);
+      }, i * 300);
     });
+    statsObserver.disconnect();
+  }
+}, { threshold: 0.5 });
+
+statsObserver.observe(statsSection);
+
+/* Ripple click */
+statCards.forEach(card => {
+  card.addEventListener("click", e => {
+    const ripple = document.createElement("span");
+    ripple.className = "ripple";
+    ripple.style.left = e.offsetX + "px";
+    ripple.style.top = e.offsetY + "px";
+    card.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
   });
+});
+
+/* Process animation */
+const processObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      processObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll(".process-card").forEach(c => processObserver.observe(c));
 </script>
 
-</script>
 </body>
 </html>
