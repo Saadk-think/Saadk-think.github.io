@@ -312,22 +312,34 @@ body { font-family: Inter, sans-serif; }
 </head>
 <body class="bg-slate-950 text-slate-100">
 
-<!-- NAVBAR -->
-<header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800">
+	<!-- NAVBAR -->
+<header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800 transition-all duration-300">
   <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-    <a href="#" class="flex items-center gap-3" aria-label="Think Technologies Home">
-  <img src="assets/logo-transparent.png" alt="Think Technologies" class="h-10 sm:h-12 md:h-14 w-auto" loading="eager" decoding="async">
-<img 
-  src="Website Logo .png"
-  alt="Think Technologies"
-  class="h-14 md:h-20 w-auto"
-/>
+
+    <!-- LOGO (Single, Clean, Bigger) -->
+    <a href="#" aria-label="Think Technologies Home" class="flex items-center">
+      <img
+        src="Website Logo .png"
+        alt="Think Technologies"
+        class="
+          h-16 sm:h-18 md:h-20 lg:h-22
+          w-auto
+          transition-all duration-300
+          hover:drop-shadow-[0_0_18px_rgba(59,130,246,0.45)]
+        "
+        loading="eager"
+        decoding="async"
+      />
+    </a>
+
+    <!-- NAV -->
     <nav class="hidden md:flex gap-8 text-sm">
-      <a href="#about" class="hover:text-blue-400">About</a>
-      <a href="#services" class="hover:text-blue-400">Services</a>
-      <a href="#process" class="hover:text-blue-400">Process</a>
-      <a href="#contact" class="hover:text-blue-400">Contact</a>
+      <a href="#about" class="hover:text-blue-400 transition">About</a>
+      <a href="#services" class="hover:text-blue-400 transition">Services</a>
+      <a href="#process" class="hover:text-blue-400 transition">Process</a>
+      <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
     </nav>
+
   </div>
 </header>
 
@@ -609,7 +621,7 @@ statCards.forEach(card => {
 });
 
 /* Process animation */
-const processObserver = new IntersectionObserver(entries => {
+const processObserver = new IntersectionObserver(entries =>	 {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("show");
