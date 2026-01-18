@@ -281,14 +281,44 @@ body { font-family: Inter, sans-serif; }
 }
 .whatsapp-float:hover { opacity: .9; }
 </style>
-</head>
 
+
+<!-- Preconnect for faster font loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Favicons (light/dark mode) -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-light-32.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-dark-32.png" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-light-16.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-dark-16.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="assets/site.webmanifest">
+<meta name="theme-color" content="#020617">
+<meta name="color-scheme" content="dark light">
+
+<!-- OpenGraph / Social -->
+<meta property="og:title" content="Think Technologies | Enterprise Digital Solutions">
+<meta property="og:description" content="Think Technologies delivers enterprise-grade software, cloud, AI, and cybersecurity solutions.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Think Technologies | Enterprise Digital Solutions">
+<meta name="twitter:description" content="Think Technologies delivers enterprise-grade software, cloud, AI, and cybersecurity solutions.">
+<meta name="twitter:image" content="assets/og-image.png">
+
+</head>
 <body class="bg-slate-950 text-slate-100">
 
 <!-- NAVBAR -->
 <header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800">
   <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-    <div class="text-xl font-bold">Think <span class="text-blue-500">Technologies</span></div>
+    <a href="#" class="flex items-center gap-3" aria-label="Think Technologies Home">
+  <img src="assets/logo-transparent.png" alt="Think Technologies" class="h-10 sm:h-12 md:h-14 w-auto" loading="eager" decoding="async">
+  <div class="text-xl font-bold leading-none">Think <span class="text-blue-500">Technologies</span></div>
+</a>
     <nav class="hidden md:flex gap-8 text-sm">
       <a href="#about" class="hover:text-blue-400">About</a>
       <a href="#services" class="hover:text-blue-400">Services</a>
