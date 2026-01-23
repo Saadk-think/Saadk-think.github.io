@@ -1,687 +1,644 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Think Technologies | Enterprise Digital Solutions</title>
-<meta name="description" content="Think Technologies delivers enterprise-grade software, cloud, AI, and cybersecurity solutions." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Think Technologies | Enterprise Digital Solutions</title>
+  <meta name="description" content="Think Technologies delivers enterprise-grade software, cloud, AI, and cybersecurity solutions." />
 
-<!-- Tailwind -->
-<script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google / SEO basics -->
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#020617" />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="canonical" href="/" />
 
-<!-- Font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Favicons (single-file, Google-friendly). 
+       <link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-256x256.png">
 
-<style>
 
- /* ===============================
-     SVG stroke draw animation
-  =============================== */
-  .icon-svg path {
-    stroke-dasharray: 100;
-    stroke-dashoffset: 100;
-    animation: draw 2s ease forwards;
+  <!-- OpenGraph / Social -->
+  <meta property="og:title" content="Think Technologies | Enterprise Digital Solutions" />
+  <meta property="og:description" content="Think Technologies delivers enterprise-grade software, cloud, AI, and cybersecurity solutions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Structured data (helps Google understand your business) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Think Technologies",
+    "url": "/",
+    "description": "Enterprise-grade software, cloud, AI, and cybersecurity solutions.",
+    "email": "Info@thinktechnologes.net",
+    "sameAs": [],
+    "logo": "Website Logo .png"
   }
+  </script>
 
-  .stat-card.visible .icon-svg path {
-    animation-delay: .2s;
-  }
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  @keyframes draw {
-    to { stroke-dashoffset: 0; }
-  }
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  /* ===============================
-     Stat Card (Glassmorphism)
-  =============================== */
-  .stat-card {
-    position: relative;
-    overflow: hidden;
-    padding: 2.8rem 1.6rem;
-    border-radius: 1.5rem;
-    background: rgba(15, 23, 42, 0.55);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(148,163,184,0.18);
-    cursor: pointer;
-    transition: transform .4s ease, box-shadow .4s ease;
-    text-align: center;
-  }
+  <style>
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
 
-  .stat-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 30px 60px rgba(59,130,246,0.35);
-  }
-
-  /* Glass reflection */
-  .stat-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      120deg,
-      transparent 40%,
-      rgba(255,255,255,.12),
-      transparent 60%
-    );
-    transform: translateX(-100%);
-    transition: transform .8s ease;
-    pointer-events: none;
-  }
-
-  .stat-card:hover::before {
-    transform: translateX(100%);
-  }
-
-  /* ===============================
-     Icon animation
-  =============================== */
-  .icon svg,
-  .icon-svg {
-    width: 42px;
-    height: 42px;
-    stroke-width: 1.6;
-    color: #60a5fa;
-    margin: 0 auto 1rem;
-    animation: floatIcon 4s ease-in-out infinite;
-  }
-
-  @keyframes floatIcon {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-  }
-
-  /* ===============================
-     Numbers & labels
-  =============================== */
-  .stat {
-    font-size: 3rem;
-    font-weight: 800;
-    color: #60a5fa;
-    text-shadow:
-      0 0 14px rgba(59,130,246,.4),
-      0 0 30px rgba(59,130,246,.25);
-  }
-
-  .label {
-    margin-top: .5rem;
-    font-size: .85rem;
-    text-transform: uppercase;
-    letter-spacing: .12em;
-    color: #94a3b8;
-  }
-
-  /* ===============================
-     Ripple effect
-  =============================== */
-  .ripple {
-    position: absolute;
-    border-radius: 50%;
-    transform: scale(0);
-    animation: ripple 600ms linear;
-    background: rgba(96,165,250,.35);
-    pointer-events: none;
-  }
-
-  @keyframes ripple {
-    to {
-      transform: scale(4);
-      opacity: 0;
+    /* Accessible skip link */
+    .skip-link {
+      position: absolute; left: -9999px; top: 12px;
+      background: #0b1224; color: white; padding: 10px 14px; border-radius: 999px;
+      border: 1px solid rgba(148,163,184,.25);
+      z-index: 9999;
     }
-  }
+    .skip-link:focus { left: 12px; }
 
-  /* ===============================
-     Haptic micro-feedback
-  =============================== */
-  .stat-card:active {
-    transform: scale(0.96);
-    box-shadow: 0 10px 20px rgba(59,130,246,0.25);
-  }
+    /* HERO fade */
+    .hero-fade {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 160px;
+      background: linear-gradient(to top, #020617, transparent);
+      pointer-events: none;
+    }
 
-/* ================= GLOWING SECTION HEADINGS ================= */
-@keyframes glowPulse {
-  0% {
-    text-shadow:
-      0 0 8px rgba(59,130,246,.4),
-      0 0 20px rgba(59,130,246,.25);
-  }
-  50% {
-    text-shadow:
-      0 0 14px rgba(59,130,246,.8),
-      0 0 40px rgba(59,130,246,.45);
-  }
-  100% {
-    text-shadow:
-      0 0 8px rgba(59,130,246,.4),
-      0 0 20px rgba(59,130,246,.25);
-  }
-}
+    /* Premium navbar motion */
+    :root{ --nav-ease: cubic-bezier(.16, 1, .3, 1); }
+    #siteHeader{ transition: box-shadow 420ms var(--nav-ease); }
+    #navInner{ transition: padding 420ms var(--nav-ease); }
+    .nav-logo {
+      height: 72px;
+      max-height: 72px;
+      transform-origin: left center;
+      transition: transform 420ms var(--nav-ease), filter 420ms var(--nav-ease);
+      will-change: transform, filter;
+    }
+    @media (max-width: 768px){ .nav-logo{ height: 58px; max-height: 58px; } }
+    @media (max-width: 420px){ .nav-logo{ height: 52px; max-height: 52px; } }
+    .nav-logo:hover{ filter: drop-shadow(0 0 18px rgba(59,130,246,0.45)); }
+    #siteHeader.is-scrolled{ box-shadow: 0 18px 45px rgba(0,0,0,.35); }
+    #siteHeader.is-scrolled .nav-logo{ transform: scale(.82); }
+    #siteHeader.is-scrolled #navInner{ padding-top: .55rem; padding-bottom: .55rem; }
 
-.section-glow {
-  color: #e5f0ff;
-  animation: glowPulse 3.5s ease-in-out infinite;
-}
+    /* Glow headings */
+    @keyframes glowPulse {
+      0% { text-shadow: 0 0 8px rgba(59,130,246,.4), 0 0 20px rgba(59,130,246,.25); }
+      50% { text-shadow: 0 0 14px rgba(59,130,246,.8), 0 0 40px rgba(59,130,246,.45); }
+      100% { text-shadow: 0 0 8px rgba(59,130,246,.4), 0 0 20px rgba(59,130,246,.25); }
+    }
+    .section-glow { color: #e5f0ff; animation: glowPulse 3.5s ease-in-out infinite; }
 
-body { font-family: Inter, sans-serif; }
+    /* Stat cards (mobile-friendly) */
+    .stat-card {
+      position: relative;
+      overflow: hidden;
+      padding: 2.4rem 1.4rem;
+      border-radius: 1.5rem;
+      background: rgba(15,23,42,.62);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(148,163,184,.18);
+      cursor: pointer;
+      transition: transform .35s ease, box-shadow .35s ease;
+      text-align: center;
+    }
+    .stat-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(59,130,246,.35);
+    }
+    .stat-card:active { transform: scale(.97); }
 
-/* ================= HERO FADE ================= */
-.hero-fade {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 160px;
-  background: linear-gradient(to top, #020617, transparent);
-  pointer-events: none;
-}
+    .stat-card::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,.12), transparent 60%);
+      transform: translateX(-100%);
+      transition: transform .8s ease;
+      pointer-events: none;
+    }
+    .stat-card:hover::before { transform: translateX(100%); }
 
-/* ================= FLOAT ICON ================= */
-@keyframes floatIcon {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
+    @keyframes floatIcon { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-6px); } }
+    .icon svg {
+      width: 42px; height: 42px;
+      stroke-width: 1.6;
+      color: #60a5fa;
+      margin: 0 auto 1rem;
+      animation: floatIcon 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 12px rgba(96,165,250,.35));
+    }
 
-/* ================= STATS ================= */
+    .stat {
+      font-size: 2.65rem;
+      font-weight: 800;
+      color: #60a5fa;
+      text-shadow: 0 0 16px rgba(59,130,246,.45);
+      line-height: 1;
+    }
+    .label {
+      margin-top: .55rem;
+      font-size: .8rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
 
-/* ===== PROCESS ICON FIX ===== */
-.process-icon svg {
-  width: 44px;
-  height: 44px;
-  color: #60a5fa;
-  stroke-width: 1.8;
+    /* Ripple */
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      background: rgba(96,165,250,.35);
+      animation: ripple .6s linear;
+      pointer-events: none;
+    }
+    @keyframes ripple { to { transform: scale(4); opacity: 0; } }
 
-  animation: floatIcon 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 12px rgba(96,165,250,.55));
-}
-.stat-card {
-  position: relative;
-  overflow: hidden;
-  padding: 2.6rem 1.6rem;
-  border-radius: 1.5rem;
-  background: rgba(15,23,42,.6);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(148,163,184,.2);
-  text-align: center;
-  cursor: pointer;
-  transition: transform .35s ease, box-shadow .35s ease;
-}
-.stat-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(59,130,246,.35);
-}
-.stat-card:active { transform: scale(.96); }
+    /* Process cards */
+    .process-card {
+      background: rgba(15,23,42,.6);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(148,163,184,.2);
+      border-radius: 1.5rem;
+      padding: 2.5rem 1.75rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all .6s ease;
+    }
+    .process-card.show { opacity: 1; transform: translateY(0); }
+    .process-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(59,130,246,.3); }
+    .process-icon svg {
+      width: 44px; height: 44px;
+      color: #60a5fa;
+      margin: 0 auto 1.1rem;
+      stroke-width: 1.8;
+      animation: floatIcon 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 12px rgba(96,165,250,.55));
+    }
 
-.stat {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #60a5fa;
-  text-shadow: 0 0 16px rgba(59,130,246,.45);
-}
-.label {
-  margin-top: .5rem;
-  font-size: .8rem;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: #94a3b8;
-}
+    /* WhatsApp button */
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 15px 35px rgba(0,0,0,.35);
+      z-index: 999;
+    }
+    .whatsapp-float:hover { opacity: .92; }
 
-/* Ripple */
-.ripple {
-  position: absolute;
-  border-radius: 50%;
-  transform: scale(0);
-  background: rgba(96,165,250,.35);
-  animation: ripple .6s linear;
-}
-@keyframes ripple {
-  to { transform: scale(4); opacity: 0; }
-}
+    /* Better tap targets on mobile */
+    a, button, input {
+      -webkit-tap-highlight-color: rgba(96,165,250,.25);
+    }
 
-/* ================= PROCESS ================= */
-.process-card {
-  background: rgba(15,23,42,.6);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(148,163,184,.2);
-  border-radius: 1.5rem;
-  padding: 3rem 2rem;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all .6s ease;
-}
-.process-card.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-.process-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 50px rgba(59,130,246,.3);
-}
-.process-icon svg {
-  width: 44px;
-  height: 44px;
-  color: #60a5fa;
-  margin: 0 auto 1.2rem;
-  animation: floatIcon 4s ease-in-out infinite;
-}
-
-/* ================= WHATSAPP BUTTON ================= */
-.whatsapp-float {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  width: 56px;
-  height: 56px;
-  background: #25D366;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 15px 35px rgba(0,0,0,.35);
-  z-index: 999;
-}
-.whatsapp-float:hover { opacity: .9; }
-
-
-/* ================= PREMIUM NAVBAR MOTION ================= */
-:root{ --nav-ease: cubic-bezier(.16, 1, .3, 1); }
-
-#siteHeader{ transition: box-shadow 420ms var(--nav-ease); }
-#navInner{ transition: padding 420ms var(--nav-ease); }
-
-.nav-logo{
-  height: 80px;
-  max-height: 80px;
-  transform-origin: left center;
-  transition: transform 420ms var(--nav-ease), filter 420ms var(--nav-ease);
-  will-change: transform, filter;
-}
-@media (max-width: 768px){ .nav-logo{ height: 64px; max-height: 64px; } }
-@media (max-width: 420px){ .nav-logo{ height: 56px; max-height: 56px; } }
-
-.nav-logo:hover{ filter: drop-shadow(0 0 18px rgba(59,130,246,0.45)); }
-
-#siteHeader.is-scrolled{ box-shadow: 0 18px 45px rgba(0,0,0,.35); }
-#siteHeader.is-scrolled .nav-logo{ transform: scale(.78); }
-
-#siteHeader.is-scrolling .nav-logo{ filter: drop-shadow(0 0 0 rgba(59,130,246,0)); }
-#siteHeader.is-idle .nav-logo{ filter: drop-shadow(0 0 16px rgba(59,130,246,0.30)); }
-
-#siteHeader.is-scrolled #navInner{ padding-top: 0.5rem; padding-bottom: 0.5rem; }
-
-</style>
-
-
-<!-- Preconnect for faster font loading -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<!-- Favicons (light/dark mode) -->
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-light-32.png" media="(prefers-color-scheme: light)">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-dark-32.png" media="(prefers-color-scheme: dark)">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-light-16.png" media="(prefers-color-scheme: light)">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-dark-16.png" media="(prefers-color-scheme: dark)">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<link rel="manifest" href="assets/site.webmanifest">
-<meta name="theme-color" content="#020617">
-<meta name="color-scheme" content="dark light">
-
-<!-- OpenGraph / Social -->
-<meta property="og:title" content="Think Technologies | Enterprise Digital Solutions">
-<meta property="og:description" content="Think Technologies delivers enterprise-grade software, cloud, AI, and cybersecurity solutions.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="assets/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Think Technologies | Enterprise Digital Solutions">
-<meta name="twitter:description" content="Think Technologies delivers enterprise-grade software, cloud, AI, and cybersecurity solutions.">
-<meta name="twitter:image" content="assets/og-image.png">
-
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; }
+      .section-glow, .icon svg, .process-icon svg { animation: none !important; }
+    }
+  </style>
 </head>
+
 <body class="bg-slate-950 text-slate-100">
+  <a class="skip-link" href="#main">Skip to content</a>
 
-	<!-- NAVBAR -->
-<header id="siteHeader" class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800 transition-all duration-300">
-  <div id="navInner" class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 transition-all duration-300">
+  <!-- NAVBAR -->
+  <header id="siteHeader" class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800">
+    <div id="navInner" class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
 
-    <!-- LOGO -->
-    <a href="#" aria-label="Think Technologies Home" class="flex items-center">
-      <img
-        src="Website Logo .png"
-        alt="Think Technologies"
-        class="nav-logo w-auto"
-        loading="eager"
-        decoding="async"
-      />
+      <!-- LOGO -->
+      <a href="#" aria-label="Think Technologies Home" class="flex items-center gap-3">
+        <img
+          src="Website Logo .png"
+          alt="Think Technologies"
+          class="nav-logo w-auto"
+          loading="eager"
+          decoding="async"
+        />
+      </a>
+
+      <!-- Desktop NAV -->
+      <nav class="hidden md:flex gap-8 text-sm" aria-label="Primary">
+        <a href="#about" class="hover:text-blue-400 transition">About</a>
+        <a href="#services" class="hover:text-blue-400 transition">Services</a>
+        <a href="#process" class="hover:text-blue-400 transition">Process</a>
+        <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900/60 px-3 py-2"
+        aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu panel -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-800 bg-slate-950/95 backdrop-blur">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col gap-3" aria-label="Mobile Primary">
+        <a href="#about" class="py-2 px-2 rounded-lg hover:bg-slate-900/70">About</a>
+        <a href="#services" class="py-2 px-2 rounded-lg hover:bg-slate-900/70">Services</a>
+        <a href="#process" class="py-2 px-2 rounded-lg hover:bg-slate-900/70">Process</a>
+        <a href="#contact" class="py-2 px-2 rounded-lg hover:bg-slate-900/70">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="relative min-h-[92svh] flex items-center overflow-hidden">
+      <video autoplay muted loop playsinline preload="metadata"
+        class="absolute inset-0 w-full h-full object-cover opacity-40">
+        <source src="thinktech4.mp4" type="video/mp4">
+      </video>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-24">
+        <div class="max-w-2xl">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+            Think Smart.<br class="sm:hidden"> Build Faster.<br class="sm:hidden"> Grow Stronger.
+          </h1>
+
+          <p class="mt-6 text-slate-300 text-base sm:text-lg leading-relaxed">
+            AI-driven, enterprise-grade digital solutions engineered for scalability,
+            security, and measurable business impact.
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-xl font-semibold text-center">
+              Get Started
+            </a>
+            <a href="#services" class="border border-slate-700 hover:border-slate-500 px-6 py-3 rounded-xl text-center">
+              Our Services
+            </a>
+          </div>
+
+          <p class="mt-6 text-xs text-slate-400">
+            Built for performance, accessibility, and mobile-first Google-friendly structure.
+          </p>
+        </div>
+      </div>
+
+      <div class="hero-fade"></div>
+    </section>
+
+    <!-- ABOUT / MISSION -->
+    <section id="about" class="py-20 sm:py-24 bg-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold section-glow">
+            About Think Technologies
+          </h2>
+          <p class="mt-6 text-slate-300 leading-relaxed">
+            At Think Technologies, our mission is to design and deliver intelligent,
+            scalable, and secure digital solutions that help businesses adapt,
+            innovate, and lead in a rapidly evolving technological landscape.
+          </p>
+        </div>
+        <video autoplay muted loop playsinline preload="metadata"
+          class="w-full rounded-2xl shadow-xl border border-slate-800">
+          <source src="Mission.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-20 sm:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-center section-glow">
+          Enterprise Services
+        </h2>
+
+        <div class="mt-12 sm:mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+          <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800">Software Engineering</div>
+          <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800">Cloud &amp; DevOps</div>
+          <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800">AI, ML &amp; Data Intelligence</div>
+          <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800">Cybersecurity</div>
+          <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800">UI / UX Design</div>
+          <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800">Digital Transformation</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="relative py-20 sm:py-24 overflow-hidden bg-slate-950 border-y border-slate-800">
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 text-center">
+        <div class="text-center mb-12 sm:mb-16">
+          <h2 class="text-3xl sm:text-4xl font-extrabold">
+            Our Impact in Numbers
+          </h2>
+          <div class="w-24 h-1 bg-blue-600 mx-auto mt-6 rounded-full"></div>
+        </div>
+
+        <div id="stats" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-10">
+          <div class="stat-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path d="M3 12l9-9 9 9"/><path d="M9 21V9h6v12"/>
+              </svg>
+            </div>
+            <div class="stat" data-target="20">0+</div>
+            <div class="label">Projects</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0113 0"/>
+              </svg>
+            </div>
+            <div class="stat" data-target="50">0+</div>
+            <div class="label">Clients</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>
+              </svg>
+            </div>
+            <div class="stat" data-target="10">0+</div>
+            <div class="label">Years Experience</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path d="M18 10a6 6 0 10-12 0v5a2 2 0 002 2h1"/>
+                <path d="M15 17h1a2 2 0 002-2v-5"/>
+              </svg>
+            </div>
+            <div class="stat" data-target="24">0+</div>
+            <div class="label">Support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="py-20 sm:py-24 bg-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-12 sm:mb-20 section-glow">
+          Our Delivery Process
+        </h2>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-10">
+          <div class="process-card">
+            <div class="process-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-lg">Discover</h3>
+            <p class="text-slate-400 mt-1">Business &amp; technical analysis</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 8h10M7 12h6"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-lg">Design</h3>
+            <p class="text-slate-400 mt-1">Architecture &amp; UX planning</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M3 12h18"/><path d="M12 3v18"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-lg">Build</h3>
+            <p class="text-slate-400 mt-1">Agile enterprise development</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M3 17l6-6 4 4 7-7"/><path d="M14 4h7v7"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-lg">Scale</h3>
+            <p class="text-slate-400 mt-1">Optimization &amp; growth</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT + SUBSCRIBE -->
+    <section id="contact" class="py-20 sm:py-24 bg-slate-900 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 lg:gap-16">
+        <div>
+          <h2 class="text-3xl font-bold">Contact Us</h2>
+
+          <div class="mt-5 space-y-3 text-slate-400">
+            <p>
+              <span class="font-semibold text-slate-200">Email:</span>
+              <a href="mailto:Info@thinktechnologes.net" class="text-blue-400 hover:text-blue-300 underline underline-offset-4">
+                Info@thinktechnologes.net
+              </a>
+            </p>
+            <p>
+              <span class="font-semibold text-slate-200">Address:</span><br>
+              1401 Lavaca Street, Unit #7065<br>
+              Austin, TX 78701
+            </p>
+          </div>
+
+          <div class="mt-10">
+            <h3 class="text-xl font-semibold">Subscribe</h3>
+            <p class="text-slate-400 mt-2">Sign up to hear from us about updates and offers.</p>
+
+            <form class="mt-4 flex flex-col sm:flex-row gap-3" aria-label="Subscribe form">
+              <label class="sr-only" for="subscribeEmail">Email address</label>
+              <input id="subscribeEmail" type="email" inputmode="email" autocomplete="email" required
+                placeholder="Email address"
+                class="flex-1 px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <button type="submit" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 font-semibold">
+                Sign Up
+              </button>
+            </form>
+          </div>
+
+          <p class="mt-6 text-xs text-slate-500">
+            Tip: For best Google performance, compress MP4s and serve them via a CDN, and generate a real 512×512 PNG icon.
+          </p>
+        </div>
+
+        <iframe
+          class="w-full h-[360px] sm:h-[420px] rounded-2xl border border-slate-700"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map to address"
+          src="https://www.google.com/maps?q=1401%20Lavaca%20Street%20Austin%20TX%2078701&output=embed">
+        </iframe>
+      </div>
+    </section>
+
+    <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm">
+      © 2026 Think Technologies. All rights reserved.
+    </footer>
+
+    <!-- WhatsApp floating button -->
+    <a href="https://wa.me/905527506357" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+      <svg viewBox="0 0 32 32" width="26" height="26" fill="white" aria-hidden="true">
+        <path d="M16 2C8.3 2 2 8.1 2 15.7c0 2.8.8 5.5 2.4 7.8L2 30l6.7-2.2c2.2 1.2 4.8 1.9 7.3 1.9 7.7 0 14-6.1 14-13.7C30 8.1 23.7 2 16 2z"/>
+      </svg>
     </a>
 
-    <!-- NAV -->
-    <nav class="hidden md:flex gap-8 text-sm">
-      <a href="#about" class="hover:text-blue-400 transition">About</a>
-      <a href="#services" class="hover:text-blue-400 transition">Services</a>
-      <a href="#process" class="hover:text-blue-400 transition">Process</a>
-      <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
-    </nav>
+  </main>
 
-  </div>
-</header>
+  <script>
+    // Mobile menu toggle
+    (function () {
+      const btn = document.getElementById("menuBtn");
+      const menu = document.getElementById("mobileMenu");
+      if (!btn || !menu) return;
 
-<!-- HERO -->
-<section class="relative min-h-screen flex items-end overflow-hidden">
-  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-40">
-    <source src="thinktech4.mp4" type="video/mp4">
-  </video>
+      function closeMenu() {
+        menu.classList.add("hidden");
+        btn.setAttribute("aria-expanded", "false");
+      }
 
-  <div class="relative max-w-7xl mx-auto px-6 pb-24">
-    <h1 class="text-4xl md:text-6xl font-extrabold whitespace-nowrap">
-      Think Smart. Build Faster. Grow Stronger.
-    </h1>
-    <p class="mt-6 max-w-2xl text-slate-300 text-lg">
-      AI-driven, enterprise-grade digital solutions engineered for scalability,
-      security, and measurable business impact.
-    </p>
-    <div class="mt-10 flex gap-4">
-      <a href="#contact" class="bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-lg font-semibold">Get Started</a>
-      <a href="#services" class="border border-slate-700 px-6 py-3 rounded-lg">Our Services</a>
-    </div>
-  </div>
+      btn.addEventListener("click", () => {
+        const isOpen = !menu.classList.contains("hidden");
+        if (isOpen) {
+          closeMenu();
+        } else {
+          menu.classList.remove("hidden");
+          btn.setAttribute("aria-expanded", "true");
+        }
+      });
 
-  <div class="hero-fade"></div>
-</section>
+      // Close menu when a link is clicked
+      menu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
 
-<!-- ABOUT / MISSION -->
-<section id="about" class="py-24 bg-slate-900">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-    <div>
-      <h2 class="text-3xl md:text-4xl font-extrabold mb-16 section-glow">
-  About Think Technologies
-</h2>
-      <p class="mt-6 text-slate-300 leading-relaxed">
-        At Think Technologies, our mission is to design and deliver intelligent,
-        scalable, and secure digital solutions that help businesses adapt,
-        innovate, and lead in a rapidly evolving technological landscape.
-      </p>
-    </div>
-    <video autoplay muted loop playsinline class="w-full rounded-2xl shadow-xl">
-      <source src="Mission.mp4" type="video/mp4">
-    </video>
-  </div>
-</section>
+      // Close on escape
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+    })();
+  </script>
 
-<!-- SERVICES -->
-<section id="services" class="py-24">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-20 section-glow">
-  Enterprise Services
-</h2>
-    <div class="mt-16 grid md:grid-cols-3 gap-8">
-      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">Software Engineering</div>
-      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">Cloud & DevOps</div>
-      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">AI, ML & Data Intelligence</div>
-      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">Cybersecurity</div>
-      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">UI / UX Design</div>
-      <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">Digital Transformation</div>
-    </div>
-  </div>
-</section>
+  <script>
+    // Stats counting (more efficient, avoids long intervals)
+    (function () {
+      const statsSection = document.getElementById("stats");
+      if (!statsSection) return;
 
-<!-- PROCESS -->
-<section id="process" class="py-24 bg-slate-900">
+      const statEls = statsSection.querySelectorAll(".stat[data-target]");
+      const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-<!-- STATS -->
-<section class="relative py-28 overflow-hidden bg-slate-950 border-t border-slate-800">
-  
-  <!-- Animated Gradient Background -->
-  <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-blue-950 to-slate-950 animate-gradient opacity-40"></div>
+      function animateCount(el) {
+        const target = Number(el.dataset.target || 0);
+        if (!target || prefersReduced) {
+          el.textContent = target + "+";
+          return;
+        }
 
-  <div class="relative max-w-7xl mx-auto px-6 text-center">
+        const duration = 1200;
+        const start = performance.now();
 
-<div class="text-center mb-20">
-  <h2 class="text-3xl md:text-4xl font-extrabold">
-    Our Impact in Numbers
-  </h2>
-  </p>
-</div>
-    <!-- Divider -->
-    <div class="w-24 h-1 bg-blue-600 mx-auto mb-16 rounded-full"></div>
+        function tick(now) {
+          const p = Math.min(1, (now - start) / duration);
+          const value = Math.floor(p * target);
+          el.textContent = value + "+";
+          if (p < 1) requestAnimationFrame(tick);
+          else el.textContent = target + "+";
+        }
+        requestAnimationFrame(tick);
+      }
 
-   <div id="stats" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+      const obs = new IntersectionObserver((entries) => {
+        if (entries[0] && entries[0].isIntersecting) {
+          statEls.forEach((el, i) => setTimeout(() => animateCount(el), i * 120));
+          obs.disconnect();
+        }
+      }, { threshold: 0.45 });
 
-  <!-- Projects -->
-  <div class="stat-card group">
-    <div class="icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path d="M3 12l9-9 9 9"/>
-        <path d="M9 21V9h6v12"/>
-      </svg>
-    </div>
-    <div class="stat" data-target="20">0+</div>
-    <div class="label">Projects</div>
-  </div>
+      obs.observe(statsSection);
+    })();
+  </script>
 
-  <!-- Clients -->
-  <div class="stat-card group">
-    <div class="icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <circle cx="12" cy="7" r="4"/>
-        <path d="M5.5 21a6.5 6.5 0 0113 0"/>
-      </svg>
-    </div>
-    <div class="stat" data-target="50">0+</div>
-    <div class="label">Clients</div>
-  </div>
+  <script>
+    // Ripple click effect
+    (function () {
+      document.querySelectorAll(".stat-card").forEach(card => {
+        card.addEventListener("click", (e) => {
+          const r = document.createElement("span");
+          r.className = "ripple";
+          const rect = card.getBoundingClientRect();
+          r.style.left = (e.clientX - rect.left) + "px";
+          r.style.top = (e.clientY - rect.top) + "px";
+          card.appendChild(r);
+          setTimeout(() => r.remove(), 600);
+        });
+      });
+    })();
+  </script>
 
-  <!-- Experience -->
-  <div class="stat-card group">
-    <div class="icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <circle cx="12" cy="12" r="9"/>
-        <path d="M12 7v5l3 3"/>
-      </svg>
-    </div>
-    <div class="stat" data-target="10">0+</div>
-    <div class="label">Years Experience</div>
-  </div>
+  <script>
+    // Process animation on reveal
+    (function () {
+      const cards = document.querySelectorAll(".process-card");
+      if (!cards.length) return;
 
-  <!-- Support -->
-  <div class="stat-card group">
-    <div class="icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path d="M18 10a6 6 0 10-12 0v5a2 2 0 002 2h1"/>
-        <path d="M15 17h1a2 2 0 002-2v-5"/>
-      </svg>
-    </div>
-    <div class="stat" data-target="24">0+</div>
-    <div class="label">Support</div>
-  </div>
-</div>
-</section>
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.25 });
 
-<!-- PROCESS -->
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-20 section-glow">
-  Our Delivery Process
-</h2>
+      cards.forEach(c => obs.observe(c));
+    })();
+  </script>
 
-    <div class="grid md:grid-cols-4 gap-10">
+  <script>
+    // Navbar scroll states
+    (function () {
+      const header = document.getElementById("siteHeader");
+      if (!header) return;
 
-      <!-- Discover -->
-      <div class="process-card">
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <circle cx="12" cy="12" r="9"/>
-            <path d="M12 7v5l3 3"/>
-          </svg>
-        </div>
-        <h3 class="font-semibold">Discover</h3>
-        <p class="text-slate-400">Business & technical analysis</p>
-      </div>
+      let scrollTimer = null;
 
-      <!-- Design -->
-      <div class="process-card">
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <rect x="3" y="3" width="18" height="18" rx="3"/>
-            <path d="M7 8h10M7 12h6"/>
-          </svg>
-        </div>
-        <h3 class="font-semibold">Design</h3>
-        <p class="text-slate-400">Architecture & UX planning</p>
-      </div>
+      function updateNav() {
+        const y = window.scrollY || 0;
+        header.classList.toggle("is-scrolled", y > 60);
 
-      <!-- Build -->
-      <div class="process-card">
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <path d="M3 12h18"/>
-            <path d="M12 3v18"/>
-          </svg>
-        </div>
-        <h3 class="font-semibold">Build</h3>
-        <p class="text-slate-400">Agile enterprise development</p>
-      </div>
+        header.classList.add("is-scrolling");
+        header.classList.remove("is-idle");
 
-      <!-- Scale -->
-      <div class="process-card">
-        <div class="process-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <path d="M3 17l6-6 4 4 7-7"/>
-            <path d="M14 4h7v7"/>
-          </svg>
-        </div>
-        <h3 class="font-semibold">Scale</h3>
-        <p class="text-slate-400">Optimization & growth</p>
-      </div>
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+          header.classList.remove("is-scrolling");
+          header.classList.add("is-idle");
+        }, 140);
+      }
 
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT + SUBSCRIBE -->
-<section id="contact" class="py-24 bg-slate-900">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
-    <div>
-      <h2 class="text-3xl font-bold">Contact Us</h2>
-      <p class="mt-4 text-slate-400">
-        <strong>Email:</strong>
-        <a href="mailto:Info@thinktechnologes.net" class="text-blue-500">Info@thinktechnologes.net</a>
-      </p>
-      <p class="mt-4 text-slate-400">
-        <strong>Address:</strong><br>
-        1401 Lavaca Street, Unit #7065<br>
-        Austin, TX 78701
-      </p>
-
-      <!-- SUBSCRIBE (ADDED) -->
-      <div class="mt-10">
-        <h3 class="text-xl font-semibold">Subscribe</h3>
-        <p class="text-slate-400 mt-2">Sign up to hear from us about updates and offers.</p>
-        <form class="mt-4 flex gap-2">
-          <input type="email" placeholder="Email address"
-            class="flex-1 px-4 py-3 rounded-lg bg-slate-800 border border-slate-700">
-          <button type="submit" class="px-6 py-3 rounded-lg bg-blue-600 font-semibold">
-            Sign Up
-          </button>
-        </form>
-      </div>
-    </div>
-
-    <iframe
-      class="w-full h-[420px] rounded-2xl border border-slate-700"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      src="https://www.google.com/maps?q=1401%20Lavaca%20Street%20Austin%20TX%2078701&output=embed">
-    </iframe>
-  </div>
-</section>
-
-<footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm">
-  © 2026 Think Technologies. All rights reserved.
-</footer>
-
-<!-- WHATSAPP FLOATING BUTTON (ADDED) -->
-<a href="https://wa.me/905527506357" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
-  <svg viewBox="0 0 32 32" width="26" fill="white">
-    <path d="M16 2C8.3 2 2 8.1 2 15.7c0 2.8.8 5.5 2.4 7.8L2 30l6.7-2.2c2.2 1.2 4.8 1.9 7.3 1.9 7.7 0 14-6.1 14-13.7C30 8.1 23.7 2 16 2z"/>
-  </svg>
-</a>
-
-<script>
-/* Stats counting */
-const statsSection = document.getElementById("stats");
-const statCards = document.querySelectorAll(".stat-card");
-
-const statsObserver = new IntersectionObserver(entries => {
-  if (entries[0].isIntersecting) {
-    statCards.forEach((card, i) => {
-      setTimeout(() => {
-        const stat = card.querySelector(".stat");
-        const target = +stat.dataset.target;
-        let current = 0;
-        const timer = setInterval(() => {
-          current++;
-          stat.textContent = current + "+";
-          if (current >= target) clearInterval(timer);
-        }, 40);
-      }, i * 300);
-    });
-    statsObserver.disconnect();
-  }
-}, { threshold: 0.5 });
-
-statsObserver.observe(statsSection);
-
-/* Ripple click */
-statCards.forEach(card => {
-  card.addEventListener("click", e => {
-    const ripple = document.createElement("span");
-    ripple.className = "ripple";
-    ripple.style.left = e.offsetX + "px";
-    ripple.style.top = e.offsetY + "px";
-    card.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 600);
-  });
-});
-
-/* Process animation */
-const processObserver = new IntersectionObserver(entries =>	 {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-      processObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.3 });
-
-document.querySelectorAll(".process-card").forEach(c => processObserver.observe(c));
-</script>
-
-
-<script>
-  (function () {
-    const header = document.getElementById("siteHeader");
-    if (!header) return;
-
-    let scrollTimer = null;
-
-    function updateNav() {
-      const y = window.scrollY || 0;
-      header.classList.toggle("is-scrolled", y > 60);
-
-      header.classList.add("is-scrolling");
-      header.classList.remove("is-idle");
-
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(() => {
-        header.classList.remove("is-scrolling");
-        header.classList.add("is-idle");
-      }, 140);
-    }
-
-    updateNav();
-    window.addEventListener("scroll", updateNav, { passive: true });
-  })();
-</script>
-
+      updateNav();
+      window.addEventListener("scroll", updateNav, { passive: true });
+    })();
+  </script>
 </body>
 </html>
