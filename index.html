@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Think Technologies | Enterprise Digital Solutions</title>
-  <meta name="description" content="Think Technologies delivers enterprise-grade software, cloud, AI, and cybersecurity solutions." />
+  <meta name="description" content="US-based digital services: book writing, editing, marketing, and website development for authors and businesses." />
 
   <!-- Google / SEO basics -->
   <meta name="robots" content="index,follow,max-image-preview:large" />
@@ -19,9 +19,11 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-256x256.png">
 
 
+  -->
+
   <!-- OpenGraph / Social -->
   <meta property="og:title" content="Think Technologies | Enterprise Digital Solutions" />
-  <meta property="og:description" content="Think Technologies delivers enterprise-grade software, cloud, AI, and cybersecurity solutions." />
+  <meta property="og:description" content="US-based digital services: book writing, editing, marketing, and website development for authors and businesses." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -33,7 +35,7 @@
     "@type": "Organization",
     "name": "Think Technologies",
     "url": "/",
-    "description": "Enterprise-grade software, cloud, AI, and cybersecurity solutions.",
+    "description": "US-based digital services: book writing, editing, marketing, and website development for authors and businesses.",
     "email": "Info@thinktechnologes.net",
     "sameAs": [],
     "logo": "Website Logo .png"
@@ -212,7 +214,65 @@
       * { scroll-behavior: auto !important; }
       .section-glow, .icon svg, .process-icon svg { animation: none !important; }
     }
-  </style>
+  
+    /* Service cards (clickable) */
+    .service-card{
+      cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background-color .25s ease;
+    }
+    .service-card:hover{
+      transform: translateY(-6px);
+      border-color: rgba(148,163,184,.35);
+      box-shadow: 0 22px 45px rgba(59,130,246,.22);
+      background: rgba(15,23,42,.72);
+    }
+    .service-card:active{ transform: scale(.98); }
+    .service-card:focus-visible{
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(59,130,246,.35), 0 22px 45px rgba(59,130,246,.18);
+    }
+
+    /* Modal */
+    .modal-overlay{
+      position: fixed; inset: 0;
+      background: rgba(2,6,23,.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 1000;
+    }
+    .modal-overlay.show{ display: flex; }
+    .modal-panel{
+      width: min(920px, 100%);
+      max-height: min(84svh, 760px);
+      overflow: auto;
+      border-radius: 1.5rem;
+      background: rgba(15,23,42,.92);
+      border: 1px solid rgba(148,163,184,.22);
+      box-shadow: 0 30px 80px rgba(0,0,0,.55);
+    }
+
+    /* Policy cards */
+    .policy-card{
+      cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background-color .25s ease;
+    }
+    .policy-card:hover{
+      transform: translateY(-6px);
+      border-color: rgba(148,163,184,.35);
+      box-shadow: 0 22px 45px rgba(59,130,246,.18);
+      background: rgba(15,23,42,.72);
+    }
+    .policy-card:active{ transform: scale(.98); }
+    .policy-card:focus-visible{
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(59,130,246,.35), 0 22px 45px rgba(59,130,246,.18);
+    }
+
+</style>
 </head>
 
 <body class="bg-slate-950 text-slate-100">
@@ -238,6 +298,7 @@
         <a href="#about" class="hover:text-blue-400 transition">About</a>
         <a href="#services" class="hover:text-blue-400 transition">Services</a>
         <a href="#process" class="hover:text-blue-400 transition">Process</a>
+        <a href="#policies" class="hover:text-blue-400 transition">Policies</a>
         <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
       </nav>
 
@@ -256,6 +317,7 @@
         <a href="#about" class="py-2 px-2 rounded-lg hover:bg-slate-900/70">About</a>
         <a href="#services" class="py-2 px-2 rounded-lg hover:bg-slate-900/70">Services</a>
         <a href="#process" class="py-2 px-2 rounded-lg hover:bg-slate-900/70">Process</a>
+        <a href="#policies" class="hover:text-blue-400 transition">Policies</a>
         <a href="#contact" class="py-2 px-2 rounded-lg hover:bg-slate-900/70">Contact</a>
       </nav>
     </div>
@@ -323,22 +385,34 @@
     <section id="services" class="py-20 sm:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <h2 class="text-3xl sm:text-4xl font-extrabold text-center section-glow">
-          Enterprise Services
+          Digital Services
         </h2>
 
-        <div class="mt-12 sm:mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
-          <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800">Software Engineering</div>
-          <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800">Cloud &amp; DevOps</div>
-          <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800">AI, ML &amp; Data Intelligence</div>
-          <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800">Cybersecurity</div>
-          <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800">UI / UX Design</div>
-          <div class="bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800">Digital Transformation</div>
-        </div>
+                <div class="mt-12 sm:mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+          <button type="button" data-service="writing" class="service-card bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800 text-left">
+            Book Writing (Ghostwriting)
+          </button>
+          <button type="button" data-service="editing" class="service-card bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800 text-left">
+            Editing &amp; Proofreading
+          </button>
+          <button type="button" data-service="marketing" class="service-card bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800 text-left">
+            Book Marketing &amp; Author Branding
+          </button>
+          <button type="button" data-service="websites" class="service-card bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800 text-left">
+            Website Design &amp; Development
+          </button>
+          <button type="button" data-service="publishing" class="service-card bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800 text-left">
+            Publishing Support &amp; Formatting
+          </button>
+          <button type="button" data-service="consulting" class="service-card bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-800 text-left">
+            Strategy &amp; Consultation
+          </button>
+</div>
       </div>
     </section>
 
     <!-- STATS -->
-      <section class="relative py-20 sm:py-24 overflow-hidden bg-slate-950 border-y border-slate-800">
+    <section class="relative py-20 sm:py-24 overflow-hidden bg-slate-950 border-y border-slate-800">
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 text-center">
         <div class="text-center mb-12 sm:mb-16">
           <h2 class="text-3xl sm:text-4xl font-extrabold">
@@ -346,7 +420,7 @@
           </h2>
           <div class="w-24 h-1 bg-blue-600 mx-auto mt-6 rounded-full"></div>
         </div>
-      
+
         <div id="stats" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-10">
           <div class="stat-card">
             <div class="icon">
@@ -354,7 +428,7 @@
                 <path d="M3 12l9-9 9 9"/><path d="M9 21V9h6v12"/>
               </svg>
             </div>
-            <div class="stat" data-target="3500">0+</div>
+            <div class="stat" data-target="20">0+</div>
             <div class="label">Projects</div>
           </div>
 
@@ -364,7 +438,7 @@
                 <circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0113 0"/>
               </svg>
             </div>
-            <div class="stat" data-target="2500">0+</div>
+            <div class="stat" data-target="50">0+</div>
             <div class="label">Clients</div>
           </div>
 
@@ -455,12 +529,31 @@
               <a href="mailto:Info@thinktechnologes.net" class="text-blue-400 hover:text-blue-300 underline underline-offset-4">
                 Info@thinktechnologes.net
               </a>
-             <p>
-              <span class="font-semibold text-slate-200">Address 2:</span><br>
-              Taskent Sk, Emniyetevleri, Kagithane<br>
-              İstanbul, Turkey
             </p>
-          </div>
+
+            <p>
+              <span class="font-semibold text-slate-200">Phone:</span>
+              <a href="tel:+17372825860" class="text-blue-400 hover:text-blue-300 underline underline-offset-4">
+                +1 737 282 5860
+              </a>
+            </p>
+
+            <p>
+              <span class="font-semibold text-slate-200">US Registered Address:</span><br>
+              30 North Gould Street STE R<br>
+              Sheridan, WY 82801, United States
+            </p>
+
+            <p>
+              <span class="font-semibold text-slate-200">Operating Address:</span><br>
+              Taskent Sk, Emniyetevleri, Kagithane<br>
+              Istanbul, Türkiye
+            </p>
+
+            <p class="text-xs text-slate-500">
+              We deliver all services digitally worldwide through a remote team.
+            </p>
+</div>
 
           <div class="mt-10">
             <h3 class="text-xl font-semibold">Subscribe</h3>
@@ -487,14 +580,78 @@
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           title="Map to address"
-          src="https://www.google.com/maps?q=1401%20Lavaca%20Street%20Austin%20TX%2078701&output=embed">
+          src="https://www.google.com/maps?q=30%20North%20Gould%20Street%20STE%20R%2C%20Sheridan%2C%20WY%2082801%2C%20USA&output=embed">
         </iframe>
       </div>
     </section>
 
-    <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm">
-      © 2026 Think Technologies. All rights reserved.
-    </footer>
+
+    <!-- POLICIES (Stripe-friendly) -->
+    <section id="policies" class="py-20 sm:py-24 bg-slate-950 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="max-w-3xl">
+          <h2 class="text-3xl sm:text-4xl font-extrabold section-glow">Policies</h2>
+          <p class="mt-4 text-slate-300 leading-relaxed">
+            We provide custom digital services delivered digitally worldwide. Please review the policies below.
+          </p>
+        </div>
+
+        <div class="mt-10 grid lg:grid-cols-3 gap-5">
+          <button type="button" data-policy="refund" class="policy-card block text-left rounded-2xl border border-slate-800 bg-slate-900/60 p-6 hover:border-slate-600 transition">
+            <h3 class="font-semibold text-lg">Refund Policy</h3>
+            <p class="mt-2 text-slate-400 text-sm">How refunds work for custom digital services.</p>
+          </button>
+          <button type="button" data-policy="terms" class="policy-card block text-left rounded-2xl border border-slate-800 bg-slate-900/60 p-6 hover:border-slate-600 transition">
+            <h3 class="font-semibold text-lg">Terms &amp; Conditions</h3>
+            <p class="mt-2 text-slate-400 text-sm">Service scope, delivery, and customer responsibilities.</p>
+          </button>
+          <button type="button" data-policy="privacy" class="policy-card block text-left rounded-2xl border border-slate-800 bg-slate-900/60 p-6 hover:border-slate-600 transition">
+            <h3 class="font-semibold text-lg">Privacy Policy</h3>
+            <p class="mt-2 text-slate-400 text-sm">How we handle your information and manuscripts.</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Policies Modal -->
+    <div id="policyModal" class="modal-overlay" aria-hidden="true">
+      <div class="modal-panel">
+        <div class="p-6 sm:p-8 border-b border-slate-800 flex items-start justify-between gap-4">
+          <div>
+            <h3 id="policyTitle" class="text-2xl sm:text-3xl font-extrabold"></h3>
+            <p id="policySubtitle" class="mt-2 text-slate-300"></p>
+          </div>
+          <button id="policyClose" type="button"
+            class="shrink-0 inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900/60 px-3 py-2 hover:border-slate-500"
+            aria-label="Close">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="p-6 sm:p-8">
+          <div class="grid gap-6">
+            <div class="rounded-2xl border border-slate-800 bg-slate-950/40 p-5">
+              <h4 class="font-semibold text-lg">Summary</h4>
+              <p id="policySummary" class="mt-2 text-slate-300"></p>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-lg">Details</h4>
+              <div id="policyBody" class="mt-3 space-y-3 text-slate-300 leading-relaxed"></div>
+            </div>
+
+            <div class="rounded-2xl border border-slate-800 bg-slate-950/40 p-5">
+              <h4 class="font-semibold text-lg">Contact</h4>
+              <p class="mt-2 text-slate-300">
+                Email: <a class="text-blue-400 underline underline-offset-4" href="mailto:Info@thinktechnologes.net">Info@thinktechnologes.net</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- WhatsApp floating button -->
     <a href="https://wa.me/905527506357" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
@@ -502,6 +659,48 @@
         <path d="M16 2C8.3 2 2 8.1 2 15.7c0 2.8.8 5.5 2.4 7.8L2 30l6.7-2.2c2.2 1.2 4.8 1.9 7.3 1.9 7.7 0 14-6.1 14-13.7C30 8.1 23.7 2 16 2z"/>
       </svg>
     </a>
+
+
+    <!-- Services Modal -->
+    <div id="serviceModal" class="modal-overlay" aria-hidden="true">
+      <div class="modal-panel">
+        <div class="p-6 sm:p-8 border-b border-slate-800 flex items-start justify-between gap-4">
+          <div>
+            <h3 id="modalTitle" class="text-2xl sm:text-3xl font-extrabold"></h3>
+            <p id="modalSubtitle" class="mt-2 text-slate-300"></p>
+          </div>
+          <button id="modalClose" type="button"
+            class="shrink-0 inline-flex items-center justify-center rounded-xl border border-slate-700 bg-slate-900/60 px-3 py-2 hover:border-slate-500"
+            aria-label="Close">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="p-6 sm:p-8">
+          <div class="grid gap-6">
+            <div class="rounded-2xl border border-slate-800 bg-slate-950/40 p-5">
+              <h4 class="font-semibold text-lg">Overview</h4>
+              <p id="modalWhy" class="mt-2 text-slate-300"></p>
+            </div>
+
+            <div>
+              <h4 class="font-semibold text-lg">What we deliver</h4>
+              <ul id="modalBullets" class="mt-3 space-y-2 text-slate-300 list-disc list-inside"></ul>
+            </div>
+
+            <div class="rounded-2xl border border-slate-800 bg-slate-950/40 p-5">
+              <h4 class="font-semibold text-lg">Engagement</h4>
+              <p id="modalEngagement" class="mt-2 text-slate-300"></p>
+              <div id="modalTags" class="mt-4 flex flex-wrap gap-2"></div>
+            </div>
+          </div>
+        </div>
+</div>
+      </div>
+    </div>
+
 
   </main>
 
@@ -639,5 +838,271 @@
       window.addEventListener("scroll", updateNav, { passive: true });
     })();
   </script>
+
+  <script>
+    // Services modal (click cards to open details)
+    (function () {
+      const overlay = document.getElementById("serviceModal");
+      const closeBtn = document.getElementById("modalClose");
+      const titleEl = document.getElementById("modalTitle");
+      const subtitleEl = document.getElementById("modalSubtitle");
+      const whyEl = document.getElementById("modalWhy");
+      const engagementEl = document.getElementById("modalEngagement");
+      const tagsEl = document.getElementById("modalTags");
+      const bulletsEl = document.getElementById("modalBullets");
+
+      const DB = {"services": {
+        "writing": {
+          "title": "Book Writing (Ghostwriting)",
+          "subtitle": "Professional ghostwriting for nonfiction and fiction with clear milestones and revision rounds.",
+          "why": "Get a polished manuscript that matches your voice, goals, and audience—delivered with a structured process.",
+          "bullets": [
+            "Outline + chapter plan",
+            "Draft writing (Google Docs / Word)",
+            "Voice matching & style alignment",
+            "1–2 revision rounds (package-dependent)",
+            "Weekly progress updates (for milestone projects)"
+          ],
+          "engagement": "Projects are milestone-based (deposit → mid-draft → final delivery) with scope defined in your proposal/invoice.",
+          "tags": ["Ghostwriting", "Nonfiction", "Fiction", "Milestones", "Revisions"]
+        },
+        "editing": {
+          "title": "Editing & Proofreading",
+          "subtitle": "Line editing, copyediting, and proofreading to improve clarity, flow, and correctness.",
+          "why": "Strengthen readability and polish your manuscript so it’s ready for publishing or submission.",
+          "bullets": [
+            "Grammar, spelling, and consistency fixes",
+            "Clarity and flow improvements",
+            "Style guide alignment (APA/Chicago/custom)",
+            "Tracked changes + comments",
+            "Final proof pass (optional)"
+          ],
+          "engagement": "Fixed-price packages or per-word quotes based on sample review and turnaround time.",
+          "tags": ["Copyediting", "Proofreading", "Style Guides", "Tracked Changes", "Quality"]
+        },
+        "marketing": {
+          "title": "Book Marketing & Author Branding",
+          "subtitle": "Launch plans, ads, content, and brand assets to help authors reach readers.",
+          "why": "Turn your book into a market-ready product with messaging, positioning, and promotion.",
+          "bullets": [
+            "Launch strategy & timeline",
+            "Amazon listing optimization (metadata + keywords)",
+            "Ad setup support (where applicable)",
+            "Social content & email copy",
+            "Author brand kit (bio, messaging, visuals)"
+          ],
+          "engagement": "Monthly retainers or launch sprints with clear deliverables and reporting.",
+          "tags": ["Launch", "Branding", "Amazon", "Content", "Growth"]
+        },
+        "websites": {
+          "title": "Website Design & Development",
+          "subtitle": "Fast, modern websites for authors and businesses—built for trust and conversion.",
+          "why": "A professional website increases credibility, captures leads, and showcases your work.",
+          "bullets": [
+            "Landing pages or multi-page sites",
+            "Mobile-first design",
+            "Contact forms & lead capture",
+            "Basic SEO structure (titles, metadata)",
+            "Deployment + handover"
+          ],
+          "engagement": "Fixed-scope builds with milestones; hosting and domain can be client-owned.",
+          "tags": ["Design", "Development", "SEO", "Mobile", "Launch"]
+        },
+        "publishing": {
+          "title": "Publishing Support & Formatting",
+          "subtitle": "Formatting and support for print and ebook release workflows.",
+          "why": "Avoid costly publishing mistakes with a clean, consistent layout and release-ready files.",
+          "bullets": [
+            "Manuscript formatting (ebook/print-ready)",
+            "Basic interior layout checks",
+            "Cover-ready specs guidance",
+            "Publishing checklist & guidance",
+            "File delivery (PDF/EPUB as agreed)"
+          ],
+          "engagement": "One-time project engagements with clear file outputs and revision limits.",
+          "tags": ["Formatting", "EPUB", "Print", "Checklist", "Delivery"]
+        },
+        "consulting": {
+          "title": "Strategy & Consultation",
+          "subtitle": "Expert guidance to plan your project, roadmap, or launch with confidence.",
+          "why": "Get clear next steps and avoid wasted spend with practical recommendations.",
+          "bullets": [
+            "Project scoping & estimates",
+            "Brand and positioning review",
+            "Website/marketing audits",
+            "Publishing/launch planning",
+            "Action plan and timeline"
+          ],
+          "engagement": "Book a session or a short engagement; deliverables include notes and an action plan.",
+          "tags": ["Audit", "Roadmap", "Planning", "Session", "Action Plan"]
+        }
+      }};
+
+      if (!overlay || !closeBtn || !titleEl || !subtitleEl || !whyEl || !engagementEl || !tagsEl || !bulletsEl) return;
+
+      function renderTags(tags){
+        tagsEl.innerHTML = "";
+        (tags || []).forEach(t => {
+          const span = document.createElement("span");
+          span.className = "inline-flex items-center rounded-full border border-slate-700 bg-slate-900/60 px-3 py-1 text-xs text-slate-200";
+          span.textContent = t;
+          tagsEl.appendChild(span);
+        });
+      }
+
+      function openModal(key) {
+        const s = DB.services[key];
+        if (!s) return;
+
+        titleEl.textContent = s.title || "";
+        subtitleEl.textContent = s.subtitle || "";
+        whyEl.textContent = s.why || "";
+        engagementEl.textContent = s.engagement || "";
+
+        bulletsEl.innerHTML = "";
+        (s.bullets || []).forEach(t => {
+          const li = document.createElement("li");
+          li.textContent = t;
+          bulletsEl.appendChild(li);
+        });
+
+        renderTags(s.tags);
+
+        overlay.classList.add("show");
+        overlay.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        closeBtn.focus();
+      }
+
+      function closeModal() {
+        overlay.classList.remove("show");
+        overlay.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      document.querySelectorAll(".service-card[data-service]").forEach(card => {
+        card.addEventListener("click", () => openModal(card.dataset.service));
+        card.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openModal(card.dataset.service);
+          }
+        });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closeModal();
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && overlay.classList.contains("show")) closeModal();
+      });
+    })();
+  </script>
+
+
+
+  <script>
+    // Policies modal (click cards/links to open)
+    (function () {
+      const overlay = document.getElementById("policyModal");
+      const closeBtn = document.getElementById("policyClose");
+      const titleEl = document.getElementById("policyTitle");
+      const subtitleEl = document.getElementById("policySubtitle");
+      const summaryEl = document.getElementById("policySummary");
+      const bodyEl = document.getElementById("policyBody");
+
+      if (!overlay || !closeBtn || !titleEl || !subtitleEl || !summaryEl || !bodyEl) return;
+
+      const POLICY_DB = {
+        refund: {
+          title: "Refund Policy",
+          subtitle: "Custom digital services delivered digitally worldwide.",
+          summary: "Refunds depend on the project stage because work is customized and time-based.",
+          body: [
+            "<p><span class='font-semibold'>Before work begins:</span> If you request cancellation before we start, you may receive a full refund (minus any non-refundable processing fees charged by payment providers, if applicable).</p>",
+            "<p><span class='font-semibold'>After work begins:</span> Once drafting, editing, research, design, or development has started, payments are generally non-refundable because time and resources have been committed.</p>",
+            "<p><span class='font-semibold'>Milestone projects:</span> For larger projects (e.g., book writing or full websites), payments are split into milestones. You are only responsible for completed milestones and approved work.</p>",
+            "<p><span class='font-semibold'>Revisions:</span> If deliverables do not match the agreed scope, we will fix issues or revise according to the package terms.</p>",
+            "<p><span class='font-semibold'>No refunds for preference:</span> Refunds are not provided solely because you changed your mind, no longer need the service, or do not prefer a particular style, if the work meets the agreed scope.</p>"
+          ]
+        },
+        terms: {
+          title: "Terms & Conditions",
+          subtitle: "Clear scope, timelines, and responsibilities to keep projects smooth.",
+          summary: "Scope is defined in your proposal/invoice. Deliverables are digital and revisions follow your package.",
+          body: [
+            "<p><span class='font-semibold'>Services:</span> We provide book writing (ghostwriting), editing, marketing, publishing support, and website services as custom digital deliverables.</p>",
+            "<p><span class='font-semibold'>Scope:</span> Project scope, timelines, and deliverables are defined in your proposal, invoice, or written agreement. Any changes may require a revised quote.</p>",
+            "<p><span class='font-semibold'>Client responsibilities:</span> You agree to provide timely feedback, materials, and approvals. Delays in feedback can delay delivery.</p>",
+            "<p><span class='font-semibold'>Delivery:</span> Deliverables are provided digitally (e.g., Google Docs/Word files, PDFs, design files, websites deployed to hosting).</p>",
+            "<p><span class='font-semibold'>Revisions:</span> Revisions are included as stated in your package/quote. Additional revisions may be billed.</p>",
+            "<p><span class='font-semibold'>Intellectual property:</span> Upon full payment, you receive rights to the final deliverables as agreed. We may use non-confidential excerpts or screenshots for portfolio only with your permission.</p>",
+            "<p><span class='font-semibold'>Prohibited content:</span> We do not support illegal, infringing, or harmful content. You are responsible for ensuring you own or have rights to any materials you provide.</p>"
+          ]
+        },
+        privacy: {
+          title: "Privacy Policy",
+          subtitle: "We keep your manuscripts and project data confidential.",
+          summary: "We collect only what’s needed to deliver your project and we do not sell your personal information.",
+          body: [
+            "<p><span class='font-semibold'>What we collect:</span> Contact details, project details, manuscripts, and payment confirmations needed to deliver services.</p>",
+            "<p><span class='font-semibold'>How we use it:</span> To communicate with you, deliver your project, and provide support.</p>",
+            "<p><span class='font-semibold'>Sharing:</span> We do not sell your personal information. We may share data with service providers (e.g., payment processors, email tools, hosting) only as needed to provide services.</p>",
+            "<p><span class='font-semibold'>Manuscript confidentiality:</span> Your manuscript and project materials are treated as confidential and shared only with team members working on your project.</p>",
+            "<p><span class='font-semibold'>Data retention:</span> We retain information as long as needed for service delivery, legal compliance, and support. You may request deletion of non-required data by contacting us.</p>"
+          ]
+        }
+      };
+
+      function openModal(key){
+        const p = POLICY_DB[key];
+        if (!p) return;
+
+        titleEl.textContent = p.title || "";
+        subtitleEl.textContent = p.subtitle || "";
+        summaryEl.textContent = p.summary || "";
+        bodyEl.innerHTML = (p.body || []).join("");
+
+        overlay.classList.add("show");
+        overlay.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        closeBtn.focus();
+      }
+
+      function closeModal(){
+        overlay.classList.remove("show");
+        overlay.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      document.querySelectorAll(".policy-card[data-policy]").forEach(btn => {
+        btn.addEventListener("click", () => openModal(btn.dataset.policy));
+        btn.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openModal(btn.dataset.policy);
+          }
+        });
+      });
+
+      document.querySelectorAll(".policy-link[data-policy]").forEach(a => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          // scroll to policies section, then open
+          const sec = document.getElementById("policies");
+          if (sec) sec.scrollIntoView({ behavior: "smooth", block: "start" });
+          // slight delay so section scroll feels natural
+          setTimeout(() => openModal(a.dataset.policy), 220);
+        });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      overlay.addEventListener("click", (e) => { if (e.target === overlay) closeModal(); });
+      window.addEventListener("keydown", (e) => { if (e.key === "Escape" && overlay.classList.contains("show")) closeModal(); });
+    })();
+  </script>
+
 </body>
 </html>
