@@ -656,7 +656,12 @@ background: rgba(15,23,42,0.55);
 
             <div id="formStatus" class="form-notice mt-4 hidden" role="status" aria-live="polite"></div>
 
-            <form action="contact-submit.php" method="post" class="mt-5 space-y-4" aria-label="Contact and SMS preferences form">
+            <form id="contactForm" action="https://formsubmit.co/info@thinktechnologies.net" method="post" class="mt-5 space-y-4" aria-label="Contact and SMS preferences form">
+              <input type="hidden" name="_subject" value="Think Technologies website inquiry and SMS preferences">
+              <input type="hidden" name="_next" value="https://thinktechnologies.net/?submitted=1#contact">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="submission_source" value="https://thinktechnologies.net/#contact">
+              <input type="hidden" name="sms_disclosure_version" value="2026-08-24">
               <div class="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label for="contactName" class="block text-sm font-medium text-slate-200 mb-2">Name</label>
@@ -686,7 +691,7 @@ background: rgba(15,23,42,0.55);
                 <legend class="text-sm font-semibold text-slate-200">Optional SMS preferences</legend>
 
                 <label class="consent-option">
-                  <input type="checkbox" name="informational_sms" value="yes">
+                  <input type="checkbox" name="informational_sms_consent" value="YES — consumer selected the informational SMS checkbox">
                   <span class="text-sm text-slate-300 leading-relaxed">
                     I agree to receive informational text messages from <strong class="text-slate-100">Think Technology LLC</strong>
                     regarding my inquiries, consultations, quotations, customer care, and project updates.
@@ -696,7 +701,7 @@ background: rgba(15,23,42,0.55);
                 </label>
 
                 <label class="consent-option">
-                  <input type="checkbox" name="marketing_sms" value="yes">
+                  <input type="checkbox" name="marketing_sms_consent" value="YES — consumer selected the marketing SMS checkbox">
                   <span class="text-sm text-slate-300 leading-relaxed">
                     I agree to receive promotional and marketing text messages from <strong class="text-slate-100">Think Technology LLC</strong>
                     about services, work samples, reviews, and special offers. Message frequency varies. Message and data rates may apply.
@@ -707,7 +712,7 @@ background: rgba(15,23,42,0.55);
 
               <div class="sr-only" aria-hidden="true">
                 <label for="websiteField">Website</label>
-                <input id="websiteField" type="text" name="website" tabindex="-1" autocomplete="off">
+                <input id="websiteField" type="text" name="_honey" tabindex="-1" autocomplete="off">
               </div>
 
               <p class="text-xs text-slate-400 leading-relaxed">
@@ -716,7 +721,7 @@ background: rgba(15,23,42,0.55);
                 and <a href="privacy-policy/" class="text-blue-400 underline underline-offset-4">Privacy Policy</a>.
               </p>
 
-              <button type="submit" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 font-semibold">
+              <button id="contactSubmit" type="submit" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 font-semibold disabled:opacity-60 disabled:cursor-wait">
                 Submit Request
               </button>
             </form>
@@ -881,6 +886,39 @@ background: rgba(15,23,42,0.55);
         status.classList.remove("hidden");
         status.classList.add("error");
       }
+
+      const form = document.getElementById("contactForm");
+      const phone = document.getElementById("contactPhone");
+      const submit = document.getElementById("contactSubmit");
+      if (!form || !phone || !submit) return;
+
+      const consentBoxes = form.querySelectorAll(
+        'input[name="informational_sms_consent"], input[name="marketing_sms_consent"]'
+      );
+
+      function validatePhoneForSms() {
+        const smsSelected = Array.from(consentBoxes).some((checkbox) => checkbox.checked);
+        phone.setCustomValidity(
+          smsSelected && phone.value.trim() === ""
+            ? "Please provide a mobile phone number when selecting SMS messages."
+            : ""
+        );
+      }
+
+      phone.addEventListener("input", validatePhoneForSms);
+      consentBoxes.forEach((checkbox) => checkbox.addEventListener("change", validatePhoneForSms));
+
+      form.addEventListener("submit", (event) => {
+        validatePhoneForSms();
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          form.reportValidity();
+          return;
+        }
+
+        submit.disabled = true;
+        submit.textContent = "Submitting…";
+      });
     })();
   </script>
 

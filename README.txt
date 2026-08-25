@@ -5,29 +5,33 @@ Keep the site's existing logo.png, video files, favicon files, and other assets 
 
 Files included:
 - index.html: updated website with the optional SMS consent form
-- contact-submit.php: records each submission and emails the inquiry
 - privacy-policy/index.html: publicly accessible Privacy Policy
 - terms-and-conditions/index.html: publicly accessible Terms and Conditions
-- storage/.htaccess: prevents public access to consent records
 
 After uploading, confirm these URLs open publicly:
 - https://thinktechnologies.net/
 - https://thinktechnologies.net/privacy-policy/
 - https://thinktechnologies.net/terms-and-conditions/
 
-FORM RECORDS
-The form creates storage/sms-consent-records.csv after the first valid submission.
-Keep this file private and backed up as evidence of consent. The storage folder must be
-writable by PHP but not publicly browsable. On Apache hosting, the included .htaccess
-blocks public access. If your server uses Nginx or another web server, ask your host to
-deny public access to the /storage/ directory.
+FORM ACTIVATION (REQUIRED ONCE)
+This website is hosted on GitHub Pages, which does not execute PHP. The form now submits
+through FormSubmit and sends each inquiry and the selected SMS preferences to
+info@thinktechnologies.net.
 
-EMAIL
-The form sends a copy of each inquiry to info@thinktechnologies.net using PHP mail().
-Confirm that this mailbox exists and that your hosting provider has PHP mail enabled.
+After uploading the updated files:
+1. Submit the form once using a real name and email address.
+2. Open the confirmation email sent to info@thinktechnologies.net by FormSubmit.
+3. Click the confirmation/activation link in that email.
+4. Submit the form again and confirm that the inquiry arrives in the mailbox.
+
+Keep the submission emails in a retained mailbox or archive as evidence of consent.
+The emails identify which optional SMS checkbox was selected and the disclosure version.
 
 FINAL TEST
 1. Submit the form without a phone number or SMS boxes selected; it should succeed.
 2. Submit with a phone number and one consent box selected; it should succeed.
-3. Select an SMS box without a phone number; the form should show an error.
-4. Verify that the email arrived and that storage/sms-consent-records.csv was created.
+3. Select an SMS box without a phone number; the browser should show an error.
+4. Verify that each successful submission arrives at info@thinktechnologies.net.
+
+The old contact-submit.php and storage folder are no longer used and may be removed from
+the live GitHub Pages repository after this version is working.
